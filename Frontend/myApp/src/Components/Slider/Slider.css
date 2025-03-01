@@ -1,0 +1,32 @@
+.mySwiper {
+  overflow: inherit !important;
+  
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  box-shadow: 0 1px 3px #0000001f, 0 1px 2px #0000003d !important;
+  transition: all 0.2s;
+  margin: -11px 4px !important;
+  /* padding: 12px !important; */
+
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-size: 7px !important;
+  color: black;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background: rgb(205, 88, 88);
+}

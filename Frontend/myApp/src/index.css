@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+.container {
+  width: 95%;
+  margin: auto;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: rgb(244, 239, 239);
+}
