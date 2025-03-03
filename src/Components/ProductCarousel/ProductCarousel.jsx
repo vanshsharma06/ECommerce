@@ -157,18 +157,18 @@ export default function ProductCarousel() {
   }, [calculateVisibleItems]);
 
   const scroll = (direction) => {
-    if (!scrollContainerRef.current) return;
+    if (scrollContainerRef.current) {
+      const container = scrollContainerRef.current;
+      const scrollAmount =
+        direction === "left"
+          ? -container.clientWidth / 2
+          : container.clientWidth / 2;
 
-    const container = scrollContainerRef.current;
-    const scrollAmount =
-      direction === "left"
-        ? -container.clientWidth / 2
-        : container.clientWidth / 2;
-
-    container.scrollBy({
-      left: scrollAmount,
-      behavior: "smooth",
-    });
+      container.scrollBy({
+        left: scrollAmount,
+        behavior: "smooth",
+      });
+    }
   };
 
   const renderStars = (rating) => (
