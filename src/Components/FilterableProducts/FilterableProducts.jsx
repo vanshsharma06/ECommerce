@@ -204,10 +204,10 @@ const FilterableProducts = () => {
     <div className=" mx-auto px-2 py-2 sm:px-3 sm:py-2 lg:px-20 lg:py-3 font-sans bg-white w-full">
       <div className="mb-2 sm:mb-3 lg:mb-5">
         <div className="mb-[3px] lg:mb-[10px]">
-          <h2 className="text-[12px] sm:text-[11px] lg:text-[19px] text-gray-800 font-medium m-0">
+          <h2 className="text-[15px] sm:text-[11px] lg:text-[19px] text-gray-800 font-medium m-0">
             Popular Products
           </h2>
-          <p className="text-[10px] sm:text-[8px] lg:text-[13px] text-gray-600 mt-[1px]">
+          <p className="text-[11px] sm:text-[8px] lg:text-[13px] text-gray-600 mt-[1px]">
             Do not miss the current offers until the end of March.
           </p>
         </div>
