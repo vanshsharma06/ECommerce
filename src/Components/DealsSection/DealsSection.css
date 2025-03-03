@@ -1,0 +1,27 @@
+.prev-btn,
+.next-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: black;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  box-shadow: 0 1px 3px #0000001f, 0 1px 2px #0000003d !important;
+  transition: all 0.2s;
+  margin: 0px 4px !important;
+  /* padding: 12px !important; */
+}
+
+.prev-btn:after,
+.next-btn:after {
+  font-size: 7px !important;
+  color: black;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+  background: rgb(205, 88, 88);
+}

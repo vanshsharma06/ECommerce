@@ -42,24 +42,24 @@ export default function Header() {
       */}
       <nav className="flex items-center justify-between px-2 py-3 border bg-white border-t-[1px] border-b-[1px]  border-gray-200 space-x-1 sm:px-4 sm:py-1 sm:space-x-2 md:py-2 lg:py-3 lg:px-7">
         {/* Logo */}
-        <div className="flex w-full">
+        <div className="flex  w-full">
           <div className="flex items-center space-x-2 sm:w-35 md:w-40 lg:w-52">
             <img
               src={photo}
               alt="ClassyShop"
-              className="h-8 w-39 sm:h-10 sm:w-25 md:h-7 md:w-27 lg:h-8 lg:w-30"
+              className="h-8 w-39 sm:h-10 sm:w-25 md:h-7 md:w-27 lg:h-11 lg:w-34"
             />
           </div>
 
           {/* Search Bar */}
-          <div className="relative w-full mx-2 sm:w-100 sm:mx-3 md:w-100 lg:w-160 lg:mx-5">
+          <div className="relative w-full mx-2 sm:w-100 sm:mx-3 md:w-100 lg:w-180 lg:mx-27">
             <input
               type="text"
               placeholder="Search for products..."
-              className="w-full bg-gray-200 text-gray-700 px-2 text-[10px] py-2 rounded-[5px] focus:outline-none sm:text-[9px] md:py-2 lg:py-3 lg:text-[11px]"
+              className="w-full bg-gray-200 text-gray-700 px-2 text-[10px] py-2 rounded-[5px] focus:outline-none sm:text-[9px] md:py-2 lg:py-3 lg:text-[13px]"
             />
             <Search
-              className="absolute right-2 top-2 md:top-2 lg:top-3 text-gray-500 cursor-pointer"
+              className="absolute right-2 top-2 md:top-2 lg:top-[14px] text-gray-500 cursor-pointer"
               style={{ fontSize: "17px" }}
             />
           </div>
@@ -69,14 +69,14 @@ export default function Header() {
         <div className="flex items-center sm:space-x-3 gap-2 lg:space-x-5 lg:gap-[4px]">
           <span className="flex justify-center items-center space-x-1 text-gray-700 cursor-pointer lg:gap-[4px]">
             <a
-              className="hover:text-red-500 text-[10px] sm:text-[10px] md:text-[11px] lg:text-[13px]"
+              className="hover:text-red-500 text-[10px] sm:text-[10px] md:text-[11px] lg:text-[14px]"
               href="#"
             >
               Login
             </a>
             <p className="text-[12px]">|</p>
             <a
-              className="hover:text-red-500 text-[10px] sm:text-[10px] md:text-[11px] lg:text-[13px]"
+              className="hover:text-red-500 text-[10px] sm:text-[10px] md:text-[11px] lg:text-[14px]"
               href="#"
             >
               Register
@@ -93,11 +93,11 @@ export default function Header() {
                       xs: "20px",
                       sm: "22px",
                       md: "20px",
-                      lg: "24px",
+                      lg: "25px",
                     },
                   }}
                 />
-                <span className="absolute -top-1 lg:-top-1 -right-1 bg-red-500 text-white text-[8px] sm:text-[7px] lg:sm:text-[8px] px-1 rounded-full">
+                <span className="absolute -top-1 lg:-top-2 -right-1 bg-red-500 text-white text-[8px] sm:text-[7px] lg:sm:text-[10px]  px-1 rounded-full">
                   4
                 </span>
               </div>
@@ -112,11 +112,11 @@ export default function Header() {
                       xs: "20px",
                       sm: "22px",
                       md: "20px",
-                      lg: "24px",
+                      lg: "25px",
                     },
                   }}
                 />
-                <span className="absolute -top-1 lg:-top-1 -right-2 bg-red-500 text-white text-[8px] sm:text-[7px] lg:sm:text-[8px] px-1 rounded-full">
+                <span className="absolute -top-1 lg:-top-2 -right-2 bg-red-500 text-white text-[8px] sm:text-[7px] lg:sm:text-[10px] px-1 rounded-full">
                   2
                 </span>
               </div>
@@ -131,11 +131,11 @@ export default function Header() {
                       xs: "20px",
                       sm: "22px",
                       md: "20px",
-                      lg: "24px",
+                      lg: "25px",
                     },
                   }}
                 />
-                <span className="absolute -top-1 lg:-top-1 -right-2 bg-red-500 text-white text-[8px] sm:text-[7px] lg:sm:text-[8px] px-1 rounded-full">
+                <span className="absolute -top-1 lg:-top-2 -right-2 bg-red-500 text-white text-[8px] sm:text-[7px] lg:sm:text-[10px] px-1 rounded-full">
                   4
                 </span>
               </div>
