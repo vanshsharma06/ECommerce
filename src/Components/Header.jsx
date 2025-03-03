@@ -15,7 +15,7 @@ export default function Header() {
     ----------------------------------------- */}
       <header>
         <div className="top_box bg-white">
-          <div className="mx-auto px-2 max-w-[1500px] flex justify-between py-[4px] text-gray-700 font-sans text-[6px] sm:text-[8px] md:text-[10px] lg:text-[11px] xl:text-[13px] md:px-7 md:py-[7px]">
+          <div className="mx-auto px-2 max-w-[1500px] flex justify-between py-[4px] text-gray-700 font-sans text-[7px] sm:text-[8px] md:text-[10px] lg:text-[11px] xl:text-[13px] md:px-7 md:py-[7px]">
             <div className="col1">
               <div className="text">
                 <p>Get up to 50% off new season styles, limited time only</p>
