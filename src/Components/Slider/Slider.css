@@ -37,3 +37,16 @@
     font-size: 12px !important;
   }
 }
+
+@media ((max-width: 600px)){
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 25px;
+    height: 25px;
+    min-width: 25px;
+  }
+  .swiper-button-prev:after,
+  .swiper-button-next:after {
+    font-size: 12px !important;
+  }
+}
