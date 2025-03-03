@@ -215,7 +215,7 @@ export default function ProductCarousel() {
 
   return (
     <div className="bg-white">
-      <div className="max-w-7xl mx-auto mt-10 px-4 py-4">
+      <div className="max-w-[2000px] mx-auto mt-10 px-4 py-4 lg:px-15">
         <h2 className="text-2xl font-medium text-gray-800 mb-6">
           Latest Products
         </h2>

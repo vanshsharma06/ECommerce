@@ -201,100 +201,102 @@ const FilterableProducts = () => {
   };
 
   return (
-    <div className=" mx-auto px-2 py-2 sm:px-3 sm:py-2 md:px-3 lg:px-20 lg:py-3 font-sans bg-white w-full">
-      <div className="mb-2 sm:mb-3 lg:mb-5">
-        <div className="mb-[3px] lg:mb-[10px]">
-          <h2 className="text-[15px] sm:text-[11px] lg:text-[19px] text-gray-800 font-medium m-0">
-            Popular Products
-          </h2>
-          <p className="text-[11px] sm:text-[8px] lg:text-[13px] text-gray-600 mt-[1px]">
-            Do not miss the current offers until the end of March.
-          </p>
+    <div className="bg-white">
+      <div className="mx-auto px-2 py-2 sm:px-3 sm:py-2 md:px-3 lg:px-20 lg:py-3 font-sans bg-white w-full max-w-[2200px]">
+        <div className="mb-2 sm:mb-3 lg:mb-5">
+          <div className="mb-[3px] lg:mb-[10px]">
+            <h2 className="text-[15px] sm:text-[11px] lg:text-[19px] text-gray-800 font-medium m-0">
+              Popular Products
+            </h2>
+            <p className="text-[11px] sm:text-[8px] lg:text-[13px] text-gray-600 mt-[1px]">
+              Do not miss the current offers until the end of March.
+            </p>
+          </div>
+          <div className="flex overflow-x-auto border-b border-gray-200">
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                className={`px-2 py-2 text-[13px] sm:text-[8px] lg:text-[14px] lg:px-3 whitespace-nowrap ${
+                  category === activeCategory
+                    ? "text-red-500 border-b-2 border-red-500 font-medium"
+                    : "text-gray-600"
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
         </div>
-        <div className="flex overflow-x-auto border-b border-gray-200">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`px-2 py-2 text-[13px] sm:text-[8px] lg:text-[14px] lg:px-3 whitespace-nowrap ${
-                category === activeCategory
-                  ? "text-red-500 border-b-2 border-red-500 font-medium"
-                  : "text-gray-600"
-              }`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-      </div>
 
-      <div className="relative">
-        {/* Left scroll button */}
-        <button
-          onClick={() => scroll("left")}
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full p-1 shadow-md hover:bg-white transition-all"
-          aria-label="Scroll left"
-        >
-          <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-gray-700" />
-        </button>
+        <div className="relative">
+          {/* Left scroll button */}
+          <button
+            onClick={() => scroll("left")}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full p-1 shadow-md hover:bg-white transition-all"
+            aria-label="Scroll left"
+          >
+            <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-gray-700" />
+          </button>
 
-        {/* Horizontal scrollable container */}
-        <div
-          ref={scrollContainerRef}
-          className="flex overflow-x-auto gap-2 py-2 scrollbar-hide scroll-smooth "
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-        >
-          {filteredProducts.map((product) => (
-            <div
-              key={product.id}
-              className="flex-shrink-0 w-[160px] sm:w-[180px] lg:w-[220px] border-1 border-gray-200 rounded overflow-hidden transition-transform hover:translate-y-[-3px] hover:shadow-md "
-            >
-              <div className="relative aspect-[4/5] ">
-                <img
-                  src={product.image || "/placeholder.svg"}
-                  alt={product.name}
-                  className="w-full h-full object-fit "
-                />
-                <div className="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-[1px] rounded z-10">
-                  {product.discount}
+          {/* Horizontal scrollable container */}
+          <div
+            ref={scrollContainerRef}
+            className="flex overflow-x-auto gap-2 py-2 scrollbar-hide scroll-smooth "
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          >
+            {filteredProducts.map((product) => (
+              <div
+                key={product.id}
+                className="flex-shrink-0 w-[160px] sm:w-[180px] lg:w-[220px] border-1 border-gray-200 rounded overflow-hidden transition-transform hover:translate-y-[-3px] hover:shadow-md "
+              >
+                <div className="relative aspect-[4/5] ">
+                  <img
+                    src={product.image || "/placeholder.svg"}
+                    alt={product.name}
+                    className="w-full h-full object-fit "
+                  />
+                  <div className="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-[1px] rounded z-10">
+                    {product.discount}
+                  </div>
+                </div>
+                <div className="px-1">
+                  <div className="p-2">
+                    <p className="text-[10px] sm:text-[8px] lg:text-[14px] text-gray-600 mb-0.5">
+                      {product.brand}
+                    </p>
+                    <p className="text-[10px] sm:text-[8px] lg:text-[13px] truncate">
+                      {product.name}
+                    </p>
+                    <div className="flex mb-1 text-[12px] sm:text-[12px] lg:text-[15px]">
+                      {renderStars(product.rating)}
+                    </div>
+                    <div className="flex items-center gap-2 mb-[6px]">
+                      <span className="line-through text-gray-500 text-[10px] sm:text-[8px] lg:text-[14px]">
+                        {product.originalPrice}
+                      </span>
+                      <span className="text-red-500 font-bold text-[10px] sm:text-[10px] lg:text-[14px]">
+                        {product.discountedPrice}
+                      </span>
+                    </div>
+                    <button className="w-full border border-red-500 text-[10px] sm:text-[8px] md:text-[12px] lg:text-[14px] lg:py-2 text-red-500 rounded py-[6px] sm:py-[4px] flex items-center justify-center gap-1 hover:bg-black hover:text-white transition-colors hover:border-black lg:mb-3 lg:mt-3">
+                      <span>🛒</span> ADD TO CART
+                    </button>
+                  </div>
                 </div>
               </div>
-              <div className="px-1">
-                <div className="p-2">
-                  <p className="text-[10px] sm:text-[8px] lg:text-[14px] text-gray-600 mb-0.5">
-                    {product.brand}
-                  </p>
-                  <p className="text-[10px] sm:text-[8px] lg:text-[13px] truncate">
-                    {product.name}
-                  </p>
-                  <div className="flex mb-1 text-[12px] sm:text-[12px] lg:text-[15px]">
-                    {renderStars(product.rating)}
-                  </div>
-                  <div className="flex items-center gap-2 mb-[6px]">
-                    <span className="line-through text-gray-500 text-[10px] sm:text-[8px] lg:text-[14px]">
-                      {product.originalPrice}
-                    </span>
-                    <span className="text-red-500 font-bold text-[10px] sm:text-[10px] lg:text-[14px]">
-                      {product.discountedPrice}
-                    </span>
-                  </div>
-                  <button className="w-full border border-red-500 text-[10px] sm:text-[8px] md:text-[12px] lg:text-[14px] lg:py-2 text-red-500 rounded py-[6px] sm:py-[4px] flex items-center justify-center gap-1 hover:bg-black hover:text-white transition-colors hover:border-black lg:mb-3 lg:mt-3">
-                    <span>🛒</span> ADD TO CART
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        {/* Right scroll button */}
-        <button
-          onClick={() => scroll("right")}
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full p-1 shadow-md hover:bg-white transition-all"
-          aria-label="Scroll right"
-        >
-          <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-gray-700" />
-        </button>
+          {/* Right scroll button */}
+          <button
+            onClick={() => scroll("right")}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full p-1 shadow-md hover:bg-white transition-all"
+            aria-label="Scroll right"
+          >
+            <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-gray-700" />
+          </button>
+        </div>
       </div>
     </div>
   );

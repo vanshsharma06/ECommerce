@@ -25,7 +25,7 @@
   background: rgb(205, 88, 88);
 }
 
-@media ((max-width: 1440px) and (orientation: landscape)) {
+@media ((min-width: 1000px) and (orientation: landscape)) {
   .swiper-button-prev,
   .swiper-button-next {
     width: 40px;
@@ -38,7 +38,7 @@
   }
 }
 
-@media ((max-width: 600px)){
+@media ((max-width: 600px)) {
   .swiper-button-prev,
   .swiper-button-next {
     width: 25px;
