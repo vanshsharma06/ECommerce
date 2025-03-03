@@ -274,7 +274,7 @@ export default function ProductCarousel() {
                       <div className="text-xs font-medium text-gray-500 mb-1">
                         {product.brand}
                       </div>
-                      <h3 className="text-sm font-medium mb-1 line-clamp-2 h-10">
+                      <h3 className="text-sm font-medium mb-1 truncate">
                         {product.name}
                       </h3>
 
