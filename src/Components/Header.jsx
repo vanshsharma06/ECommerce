@@ -14,7 +14,7 @@ export default function Header() {
     header
     ----------------------------------------- */}
       <header>
-        <div className="top_box bg-white">
+        <div className="top_box bg-white py-1">
           <div className="mx-auto px-2 max-w-[1500px] flex justify-between py-[4px] text-gray-700 font-sans text-[9px] sm:text-[8px] md:text-[10px] lg:text-[11px] xl:text-[13px] md:px-7 md:py-[7px]">
             <div className="col1">
               <div className="text">
@@ -40,7 +40,7 @@ export default function Header() {
       navbar
       --------------------------------------------
       */}
-      <nav className="flex items-center justify-between px-2 py-1 border bg-white border-t-[1px] border-b-[1px]  border-gray-200 space-x-1 sm:px-4 sm:py-1 sm:space-x-2 md:py-2 lg:py-3 lg:px-7">
+      <nav className="flex items-center justify-between px-2 py-2 border bg-white border-t-[1px] border-b-[1px]  border-gray-200 space-x-1 sm:px-4 sm:py-1 sm:space-x-2 md:py-2 lg:py-3 lg:px-7">
         {/* Logo */}
         <div className="flex items-center space-x-2 sm:w-35 md:w-40 lg:w-52">
           <img
