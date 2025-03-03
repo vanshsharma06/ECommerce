@@ -13,7 +13,7 @@ export default function Footer() {
             <p className="mt-2 text-red-500 font-bold text-[9px] lg:text-[14px]">
               (+91) 9876-543-210
             </p>
-            <p className="mt-2 text-[9px] lg:text-[13px]">sales@yourcompany.com</p>
+            <p className="mt-2 text-[8px] lg:text-[13px]">sales@yourcompany.com</p>
             <div className="mt-4 flex items-center space-x-1 text-red-500">
               <span className="text-[12px] lg:text-[21px]">💬</span>
               <span className="text-[12px] lg:text-[14px]">Online Chat</span>
@@ -22,7 +22,7 @@ export default function Footer() {
           </div>
 
           {/* Products */}
-          <div className="mx-3">
+          <div className="mx-4">
             <h3 className="font-semibold text-[11px] lg:text-[16px]">Products</h3>
             <ul className="mt-2 space-y-2 text-[9px] lg:text-[13px]">
               <li>
