@@ -51,7 +51,7 @@ export default function Header() {
         </div>
 
         {/* Search Bar */}
-        <div className="relative w-35 mx-2 sm:w-80 sm:mx-3 md:w-100 lg:w-160 lg:mx-5">
+        <div className="relative w-35 mx-2 sm:w-100 sm:mx-3 md:w-100 lg:w-160 lg:mx-5">
           <input
             type="text"
             placeholder="Search for products..."
