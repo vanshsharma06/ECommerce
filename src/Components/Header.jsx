@@ -7,7 +7,7 @@ import {
 import { Tooltip } from "@mui/material";
 import photo from "../assets/logo.jpg";
 
-export default function header() {
+export default function Header() {
   return (
     <>
       {/* -------------------------------------

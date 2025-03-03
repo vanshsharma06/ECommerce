@@ -1,4 +1,4 @@
-import Header from "../Components/header";
+import Header from "../Components/Header";
 import Navigation from "../Components/Navigation/Navigation";
 import Slider from "../Components/Slider/Slider";
 import CategorySection from "../Components/CategorySection/CategorySection";
