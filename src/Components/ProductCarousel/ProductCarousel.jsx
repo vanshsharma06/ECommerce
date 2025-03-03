@@ -1,9 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
+import { ChevronLeft, ChevronRight, ShoppingCart } from "lucide-react";
 
 export default function ProductCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [containerWidth, setContainerWidth] = useState(0);
+  const [itemWidth, setItemWidth] = useState(0);
+  const containerRef = useRef(null);
+  const itemsRef = useRef(null);
 
   const products = [
     {
@@ -21,7 +26,7 @@ export default function ProductCarousel() {
     {
       id: 2,
       brand: "Motorola",
-      name: "Motorola Edge 50 Fusion 5G (Ho...",
+      name: "Motorola Edge 50 Fusion 5G (Hot Pink)",
       image:
         "https://res.cloudinary.com/duqoh8gf5/image/upload/v1740907187/1740907187082_file_1734771942206_motorola-edge-50-fusion-5g-hot-pink-256-gb-12-gb-ram-product-images-orvvh2thgzw-p609069813-0-202405250532.webp",
       originalPrice: "₹1,800.00",
@@ -57,7 +62,7 @@ export default function ProductCarousel() {
     {
       id: 5,
       brand: "Trilok Fab",
-      name: "Buy New Trend Women Black Cott...",
+      name: "Buy New Trend Women Black Cotton Blend Top",
       image:
         "https://res.cloudinary.com/duqoh8gf5/image/upload/v1740663881/1740663879548_miss-ayse-women-s-multicolor-crepe-printed-top-product-images-rvvlrud6qm-0-202410111253.webp",
       originalPrice: "₹2,200.00",
@@ -69,7 +74,7 @@ export default function ProductCarousel() {
     {
       id: 6,
       brand: "Deel band",
-      name: "Deel Band Women Rayon Embroide...",
+      name: "Deel Band Women Rayon Embroidered...",
       image:
         "https://res.cloudinary.com/duqoh8gf5/image/upload/v1740650263/1740650262333_buynewtrend-women-maroon-cotton-blend-top-product-images-rvb22aqlk7-1-202201130044.jpg",
       originalPrice: "₹1,800.00",
@@ -85,7 +90,7 @@ export default function ProductCarousel() {
       image:
         "https://res.cloudinary.com/duqoh8gf5/image/upload/v1736781548/1736781543208_1000014029787-Green-GREEN-1000014029787_01-2100.jpg",
       originalPrice: "₹735.00",
-      discountedPrice: "",
+      discountedPrice: "₹650.00",
       discount: "12%",
       rating: 5,
       backgroundColor: "#ffffff",
@@ -97,7 +102,7 @@ export default function ProductCarousel() {
       image:
         "https://res.cloudinary.com/duqoh8gf5/image/upload/v1736781548/1736781543208_1000014029787-Green-GREEN-1000014029787_01-2100.jpg",
       originalPrice: "₹735.00",
-      discountedPrice: "",
+      discountedPrice: "₹650.00",
       discount: "12%",
       rating: 5,
       backgroundColor: "#ffffff",
@@ -109,15 +114,50 @@ export default function ProductCarousel() {
       image:
         "https://res.cloudinary.com/duqoh8gf5/image/upload/v1736781548/1736781543208_1000014029787-Green-GREEN-1000014029787_01-2100.jpg",
       originalPrice: "₹735.00",
-      discountedPrice: "",
+      discountedPrice: "₹650.00",
       discount: "12%",
       rating: 5,
       backgroundColor: "#ffffff",
     },
   ];
 
-  const visibleProducts = 5;
-  const maxIndex = products.length - visibleProducts;
+  // Screen size ke hisaab se visible items ka calculation
+  const calculateVisibleItems = useCallback(() => {
+    if (typeof window !== "undefined") {
+      if (window.innerWidth < 640) return 2;
+      if (window.innerWidth < 1024) return 3;
+      return 5;
+    }
+    return 5;
+  }, []);
+
+  const [visibleItems, setVisibleItems] = useState(calculateVisibleItems());
+
+  // Ye function ab useEffect ke andar define nahi hoga
+  const updateDimensions = () => {
+    if (containerRef.current && itemsRef.current) {
+      setContainerWidth(containerRef.current.offsetWidth);
+      const firstItem = itemsRef.current.children[0];
+      if (firstItem instanceof HTMLElement) {
+        setItemWidth(firstItem.offsetWidth);
+      }
+    }
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setVisibleItems(calculateVisibleItems());
+      updateDimensions();
+    };
+
+    // Initial calculation
+    updateDimensions();
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [calculateVisibleItems]);
+
+  const maxIndex = Math.max(0, products.length - visibleItems);
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => Math.min(prevIndex + 1, maxIndex));
@@ -127,97 +167,89 @@ export default function ProductCarousel() {
     setCurrentIndex((prevIndex) => Math.max(prevIndex - 1, 0));
   };
 
-  const renderStars = (rating) => {
-    return Array(5)
-      .fill(0)
-      .map((_, i) => (
-        <span
-          key={i}
-          className={`text-lg ${
-            i < rating ? "text-yellow-400" : "text-gray-300"
-          }`}
-        >
-          ★
-        </span>
-      ));
+  const getTranslateX = () => {
+    if (itemWidth === 0) return 0;
+    return currentIndex * (itemWidth + 16);
   };
 
   return (
     <div className="bg-white">
-      <div className="max-w-7xl mx-auto mt-10 px-4 py-4">
-        <h2 className="text-2xl font-medium text-gray-800 mb-6">
-          Latest Products
-        </h2>
+      <div className="max-w-7xl mx-auto mt-10 px-3 py-4">
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-2xl font-medium text-gray-800">
+            Latest Products
+          </h2>
+          <div className="flex gap-2">
+            <button
+              onClick={prevSlide}
+              disabled={currentIndex === 0}
+              className="bg-white rounded-full p-2 shadow-md disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 transition-colors"
+            >
+              <ChevronLeft className="h-5 w-5 text-gray-600" />
+            </button>
+            <button
+              onClick={nextSlide}
+              disabled={currentIndex >= maxIndex}
+              className="bg-white rounded-full p-2 shadow-md disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 transition-colors"
+            >
+              <ChevronRight className="h-5 w-5 text-gray-600" />
+            </button>
+          </div>
+        </div>
 
-        <div className="relative">
+        <div className="relative" ref={containerRef}>
           <div className="overflow-hidden">
             <div
-              className="flex transition-transform duration-300 ease-in-out gap-4"
+              ref={itemsRef}
+              className="flex gap-4 transition-transform duration-500 ease-out"
               style={{
-                transform: `translateX(-${
-                  currentIndex * (100 / visibleProducts)
-                }%)`,
+                transform: `translateX(-${getTranslateX()}px)`,
               }}
             >
               {products.map((product) => (
                 <div
                   key={product.id}
-                  className="flex-shrink-0 w-[160px] sm:w-[180px] lg:w-[220px] border-1 border-gray-200 rounded overflow-hidden transition-transform hover:translate-y-[-3px] hover:shadow-md "
+                  className="flex-shrink-0 w-[160px] sm:w-[200px] md:w-[220px] lg:w-[230px] transition-all duration-300 hover:translate-y-[-5px] hover:shadow-lg"
                 >
                   <div className="bg-white rounded-lg overflow-hidden h-full flex flex-col shadow-sm border border-gray-100">
                     <div
-                      className="relative aspect-[4/5]"
+                      className="relative aspect-[4/5] overflow-hidden"
                       style={{ backgroundColor: product.backgroundColor }}
                     >
-                      <div className="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded z-10">
-                        {product.discount}
-                      </div>
-                      <div className="w-full h-full flex items-center justify-center bg-white">
+                      {product.discount && (
+                        <div className="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded z-10">
+                          {product.discount}
+                        </div>
+                      )}
+                      <div className="w-full h-full flex items-center justify-center">
                         <img
-                          src={product.image} // 👈 Placeholder hatake actual image use kar raha hu
+                          src={product.image || "/placeholder.svg"}
                           alt={product.name}
-                          className="max-h-full object-fit"
+                          className="max-h-full max-w-full object-cover transition-transform duration-300 hover:scale-105"
                         />
                       </div>
                     </div>
 
                     <div className="p-3 flex flex-col flex-grow">
-                      <div className="text-xs text-gray-500 mb-1">
+                      <div className="text-xs font-medium text-gray-500 mb-1">
                         {product.brand}
                       </div>
-                      <h3 className="text-xs font-medium mb-1 line-clamp-2 h-5">
+                      <h3 className="text-sm font-medium mb-1 line-clamp-2 h-10">
                         {product.name}
                       </h3>
 
-                      <div className="flex mb-1">
-                        {renderStars(product.rating)}
-                      </div>
-
                       <div className="mt-auto">
-                        <div className="flex items-center gap-2 mb-2">
+                        <div className="flex items-center gap-2 mb-3">
                           <span className="text-gray-400 line-through text-xs">
                             {product.originalPrice}
                           </span>
                           <span className="text-red-500 font-medium text-sm">
-                            {product.discountedPrice}
+                            {product.discountedPrice || product.originalPrice}
                           </span>
                         </div>
 
-                        <button className="w-full border border-red-500 text-red-500 py-1.5 rounded flex items-center justify-center text-xs hover:bg-red-50 transition-colors">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-4 w-4 mr-1"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-                            />
-                          </svg>
+                        <button className="w-full border border-red-500 text-red-500 py-1.5 rounded flex items-center justify-center text-xs font-medium hover:bg-red-50 transition-colors">
+                          <ShoppingCart className="h-3.5 w-3.5 mr-1" />
                           ADD TO CART
                         </button>
                       </div>
@@ -227,50 +259,19 @@ export default function ProductCarousel() {
               ))}
             </div>
           </div>
+        </div>
 
-          <button
-            onClick={prevSlide}
-            disabled={currentIndex === 0}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 bg-white rounded-full p-1 shadow-md z-10 disabled:opacity-50 disabled:cursor-not-allowed"
-            aria-label="Previous slide"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 text-gray-600"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-          </button>
-
-          <button
-            onClick={nextSlide}
-            disabled={currentIndex >= maxIndex}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 bg-white rounded-full p-1 shadow-md z-10 disabled:opacity-50 disabled:cursor-not-allowed"
-            aria-label="Next slide"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 text-gray-600"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </button>
+        {/* Mobile Pagination Indicator */}
+        <div className="flex justify-center mt-4 gap-1 sm:hidden">
+          {Array.from({ length: maxIndex + 1 }).map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`h-1.5 rounded-full transition-all ${
+                currentIndex === index ? "w-4 bg-red-500" : "w-1.5 bg-gray-300"
+              }`}
+            />
+          ))}
         </div>
       </div>
     </div>
