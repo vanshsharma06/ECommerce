@@ -13,7 +13,7 @@ export default function Navigation() {
           onClick={() => {
             setIsOpenCatPanel(true);
           }} // Drawer Open on Click
-          className="flex items-center sm:space-x-1 font-bold px-2 rounded-md active:scale-95 transition-all duration-200 active:bg-gray-200 "
+          className="flex items-center sm:space-x-1 font-bold px-1 rounded-md active:scale-95 transition-all duration-200 active:bg-gray-200 "
         >
           <div>
             <Menu style={{ fontSize: "16px" }} />
@@ -25,7 +25,7 @@ export default function Navigation() {
         </button>
 
         {/* Navigation Links as Buttons */}
-        <div className="text-[8px] font-medium flex flex-wrap justify-center sm:text-[8px] md:text-[8px] md:gap-2 lg:text-[11px] xl:text-[13px] lg:gap-4">
+        <div className="text-[7px] font-medium flex justify-center sm:text-[8px] md:text-[8px] md:gap-2 lg:text-[11px] xl:text-[13px] lg:gap-4">
           {[
             "Home",
             "Fashion",
