@@ -261,11 +261,11 @@ export default function ProductCarousel() {
                           {product.discount}
                         </div>
                       )}
-                      <div className="w-full h-full flex items-center justify-center p-2">
+                      <div className="w-full h-full flex items-center justify-center">
                         <img
                           src={product.image || "/placeholder.svg"}
                           alt={product.name}
-                          className="max-h-full max-w-full object-contain transition-transform duration-300 hover:scale-105"
+                          className="max-h-full max-w-full object-fit transition-transform duration-300 hover:scale-105"
                         />
                       </div>
                     </div>
