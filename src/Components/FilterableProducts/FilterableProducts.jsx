@@ -204,10 +204,10 @@ const FilterableProducts = () => {
     <div className=" mx-auto px-2 py-2 sm:px-3 sm:py-2 lg:px-20 lg:py-3 font-sans bg-white w-full">
       <div className="mb-2 sm:mb-3 lg:mb-5">
         <div className="mb-[3px] lg:mb-[10px]">
-          <h2 className="text-[9px] sm:text-[11px] lg:text-[19px] text-gray-800 font-medium m-0">
+          <h2 className="text-[12px] sm:text-[11px] lg:text-[19px] text-gray-800 font-medium m-0">
             Popular Products
           </h2>
-          <p className="text-[7px] sm:text-[8px] lg:text-[13px] text-gray-600 mt-[1px]">
+          <p className="text-[10px] sm:text-[8px] lg:text-[13px] text-gray-600 mt-[1px]">
             Do not miss the current offers until the end of March.
           </p>
         </div>
@@ -216,7 +216,7 @@ const FilterableProducts = () => {
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-2 py-2 text-[6px] sm:text-[8px] lg:text-[14px] lg:px-3 whitespace-nowrap ${
+              className={`px-2 py-2 text-[13px] sm:text-[8px] lg:text-[14px] lg:px-3 whitespace-nowrap ${
                 category === activeCategory
                   ? "text-red-500 border-b-2 border-red-500 font-medium"
                   : "text-gray-600"
@@ -255,30 +255,30 @@ const FilterableProducts = () => {
                   alt={product.name}
                   className="w-full h-full object-fit "
                 />
-                <div className="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded z-10">
+                <div className="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-[1px] rounded z-10">
                   {product.discount}
                 </div>
               </div>
               <div className="px-1">
                 <div className="p-2">
-                  <p className="text-[6px] sm:text-[8px] lg:text-[14px] text-gray-600 mb-0.5">
+                  <p className="text-[10px] sm:text-[8px] lg:text-[14px] text-gray-600 mb-0.5">
                     {product.brand}
                   </p>
-                  <p className="text-[7px] sm:text-[8px] lg:text-[13px] truncate">
+                  <p className="text-[10px] sm:text-[8px] lg:text-[13px] truncate">
                     {product.name}
                   </p>
-                  <div className="flex mb-1 text-[8px] sm:text-[9px] lg:text-[15px]">
+                  <div className="flex mb-1 text-[12px] sm:text-[12px] lg:text-[15px]">
                     {renderStars(product.rating)}
                   </div>
                   <div className="flex items-center gap-2 mb-[6px]">
-                    <span className="line-through text-gray-500 text-[5px] sm:text-[8px] lg:text-[14px]">
+                    <span className="line-through text-gray-500 text-[10px] sm:text-[8px] lg:text-[14px]">
                       {product.originalPrice}
                     </span>
-                    <span className="text-red-500 font-bold text-[5px] sm:text-[7px] lg:text-[14px]">
+                    <span className="text-red-500 font-bold text-[10px] sm:text-[10px] lg:text-[14px]">
                       {product.discountedPrice}
                     </span>
                   </div>
-                  <button className="w-full border border-red-500 text-[5px] sm:text-[8px] md:text-[9px] lg:text-[14px] lg:py-2 text-red-500 rounded py-[3px] sm:py-[4px] flex items-center justify-center gap-1 hover:bg-black hover:text-white transition-colors hover:border-black lg:mb-3 lg:mt-3">
+                  <button className="w-full border border-red-500 text-[10px] sm:text-[8px] md:text-[12px] lg:text-[14px] lg:py-2 text-red-500 rounded py-[6px] sm:py-[4px] flex items-center justify-center gap-1 hover:bg-black hover:text-white transition-colors hover:border-black lg:mb-3 lg:mt-3">
                     <span>🛒</span> ADD TO CART
                   </button>
                 </div>
