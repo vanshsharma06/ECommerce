@@ -46,7 +46,7 @@ export default function Header() {
           <img
             src={photo}
             alt="ClassyShop"
-            className="h-6 w-20 sm:h-6 sm:w-21 md:h-7 md:w-27 lg:h-8 lg:w-30"
+            className="h-7 w-26 sm:h-6 sm:w-21 md:h-7 md:w-27 lg:h-8 lg:w-30"
           />
         </div>
 
