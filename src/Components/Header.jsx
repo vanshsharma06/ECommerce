@@ -42,16 +42,17 @@ export default function Header() {
       */}
       <nav className="flex items-center justify-between px-2 py-3 border bg-white border-t-[1px] border-b-[1px]  border-gray-200 space-x-1 sm:px-4 sm:py-1 sm:space-x-2 md:py-2 lg:py-3 lg:px-7">
         {/* Logo */}
+        <div className="flex w-full">
         <div className="flex items-center space-x-2 sm:w-35 md:w-40 lg:w-52">
           <img
             src={photo}
             alt="ClassyShop"
-            className="h-8 w-29 sm:h-10 sm:w-25 md:h-7 md:w-27 lg:h-8 lg:w-30"
+            className="h-8 w-39 sm:h-10 sm:w-25 md:h-7 md:w-27 lg:h-8 lg:w-30"
           />
         </div>
 
         {/* Search Bar */}
-        <div className="relative w-45 mx-2 sm:w-100 sm:mx-3 md:w-100 lg:w-160 lg:mx-5">
+        <div className="relative w-full mx-2 sm:w-100 sm:mx-3 md:w-100 lg:w-160 lg:mx-5">
           <input
             type="text"
             placeholder="Search for products..."
@@ -61,6 +62,7 @@ export default function Header() {
             className="absolute right-2 top-2 md:top-2 lg:top-3 text-gray-500 cursor-pointer"
             style={{ fontSize: "17px" }}
           />
+        </div>
         </div>
 
         {/* Icons & Login */}
