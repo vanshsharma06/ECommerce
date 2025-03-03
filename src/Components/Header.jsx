@@ -15,7 +15,7 @@ export default function Header() {
     ----------------------------------------- */}
       <header>
         <div className="top_box bg-white py-1">
-          <div className="mx-auto px-2 max-w-[1500px] flex justify-between py-[4px] text-gray-700 font-sans text-[9px] sm:text-[8px] md:text-[10px] lg:text-[11px] xl:text-[13px] md:px-7 md:py-[7px]">
+          <div className="mx-auto px-2 max-w-[1500px] flex justify-between py-[4px] text-gray-700 font-sans text-[9px] sm:text-[9101x] sm:px-3 md:text-[10px] lg:text-[11px] xl:text-[13px] md:px-7 md:py-[7px]">
             <div className="col1">
               <div className="text">
                 <p>Get up to 50% off new season styles, limited time only</p>
@@ -46,7 +46,7 @@ export default function Header() {
           <img
             src={photo}
             alt="ClassyShop"
-            className="h-7 w-26 sm:h-6 sm:w-21 md:h-7 md:w-27 lg:h-8 lg:w-30"
+            className="h-7 w-26 sm:h-10 sm:w-25 md:h-7 md:w-27 lg:h-8 lg:w-30"
           />
         </div>
 
