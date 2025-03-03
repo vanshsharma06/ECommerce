@@ -7,7 +7,7 @@ export default function Navigation() {
 
   return (
     <>
-      <nav className="flex items-center justify-between shadow bg-white text-black font-sans flex-wrap text-[9px] sm:text-[7px] md:text-[10px] md:py-1 lg:text-[10px] lg:py-1 lg:px-3 xl:text-[13px]">
+      <nav className="flex items-center justify-between shadow bg-white text-black font-sans text-[9px] sm:text-[7px] md:text-[10px] md:py-1 lg:text-[10px] lg:py-1 lg:px-3 xl:text-[13px]">
         {/* Shop by Categories Dropdown Button */}
         <button
           onClick={() => {
