@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight, ShoppingCart } from "lucide-react";
 
-export default function ElectronicsPage() {
+export default function Groceries() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [containerWidth, setContainerWidth] = useState(0);
   const [itemWidth, setItemWidth] = useState(0);
@@ -15,36 +15,25 @@ export default function ElectronicsPage() {
   const products = [
     {
       id: 1,
-      brand: "Apple",
-      name: "Apple iPhone 15 256GB Pink",
+      brand: "Lays",
+      name: "Lay's American Style Cream & O...",
       image:
-        "https://res.cloudinary.com/duqoh8gf5/image/upload/v1736753969/1736753967866_apple-iphone-13-128-gb-pink-digital-o491997703-p590798557-0-202208221207.webp",
-      originalPrice: "28000.00",
-      discountedPrice: "25000.00",
+        "https://res.cloudinary.com/duqoh8gf5/image/upload/v1736780214/1736780210287_file_1734788009997_lay-s-american-style-cream-onion-potato-chips-82-g-product-images-o491696354-p590121272-0-202410031824.webp",
+      originalPrice: "45.00",
+      discountedPrice: "35.00",
       discount: "10%",
       rating: 5,
     },
     {
       id: 2,
-      brand: "Apple",
-      name: "Apple iPhone 15 256GB Black",
+      brand: "Saffola",
+      name: "Saffola Gold Pro Healthy Lifes...",
       image:
-        "https://res.cloudinary.com/duqoh8gf5/image/upload/v1736779231/1736779226041_apple-iphone-13-128-gb-midnight-black-digital-o491997699-p590798548-0-202208221207.webp",
-      originalPrice: "45000.00",
-      discountedPrice: "35000.00",
+        "https://res.cloudinary.com/duqoh8gf5/image/upload/v1736780343/1736780338951_saffola-gold-pro-healthy-lifestyle-ricebran-based-blended-oil-1-l-product-images-o490000057-p490000057-0-202403191806.webp",
+      originalPrice: "100.00",
+      discountedPrice: "90.00",
       discount: "10%",
       rating: 4,
-    },
-    {
-      id: 3,
-      brand: "Motorola",
-      name: "Motorola Edge 50 Fusion 5G",
-      image:
-        "https://res.cloudinary.com/duqoh8gf5/image/upload/v1740907187/1740907187082_file_1734771942206_motorola-edge-50-fusion-5g-hot-pink-256-gb-12-gb-ram-product-images-orvvh2thgzw-p609069813-0-202405250532.webp",
-      originalPrice: "1800.00",
-      discountedPrice: "15600.00",
-      discount: "12%",
-      rating: 3.5,
     },
   ];
 
@@ -141,7 +130,7 @@ export default function ElectronicsPage() {
   return (
     <div className="bg-white">
       <div className="max-w-[2000px] mx-auto px-4 py-4 lg:px-15">
-        <h2 className="text-2xl font-medium text-gray-800 mb-6">Electronics</h2>
+        <h2 className="text-2xl font-medium text-gray-800 mb-6">Groceries</h2>
 
         <div className="relative" ref={containerRef}>
           <button

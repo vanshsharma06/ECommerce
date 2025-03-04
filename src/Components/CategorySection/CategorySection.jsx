@@ -53,7 +53,7 @@ const Categories = () => {
             <img
               src={category.imageSrc}
               alt={category.name}
-              className="w-6 h-6 mx-auto sm:w-10 sm:h-10 lg:w-12 lg:h-12"
+              className="w-6 h-6 mx-auto sm:w-10 sm:h-10 lg:w-16 lg:h-16"
             />
             <p className="text-center mt-1 font-medium text-gray-700 text-[6px] sm:text-[11px] lg:text-[14px] sm:mt-2">
               {category.name}

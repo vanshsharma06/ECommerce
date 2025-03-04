@@ -9,6 +9,7 @@ import ProductCarousel from "../Components/ProductCarousel/ProductCarousel";
 import Features from "../Components/Features/Features";
 import Footer from "../Components/Footer";
 import ElectronicsPage from "../Components/ElectronicsPage/ElectronicsPage";
+import Groceries from "../Components/Groceries/Groceries";
 export default function Pages() {
   return (
     <div>
@@ -21,6 +22,7 @@ export default function Pages() {
       <DealsSection></DealsSection>
       <ProductCarousel></ProductCarousel>
       <ElectronicsPage></ElectronicsPage>
+      <Groceries></Groceries>
       <Features></Features>
       <Footer></Footer>
     </div>
