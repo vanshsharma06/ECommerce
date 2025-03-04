@@ -28,7 +28,7 @@ const deals = [
 
 const DealsSection = () => {
   return (
-    <div className="relative w-full max-w-[1200px] mx-auto py-3 lg:py-10">
+    <div className="relative w-full max-w-[1200px] mx-auto py-3 px-3 lg:py-10">
       {/* Swiper Slider */}
       <Swiper
         modules={[Navigation]}

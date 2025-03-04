@@ -157,7 +157,7 @@ export default function Groceries() {
             onTouchEnd={handleTouchEnd}
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
-            <div ref={itemsRef} className="flex gap-3 md:gap-4 py-2">
+            <div ref={itemsRef} className="flex gap-3 lg:gap-4 py-2">
               {products.map((product) => (
                 <div
                   key={product.id}
