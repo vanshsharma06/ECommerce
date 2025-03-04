@@ -2,7 +2,7 @@ import { LiaShippingFastSolid } from "react-icons/lia";
 
 export default function FreeShipping() {
   return (
-    <div className="container pt-10">
+    <div className="container lg:pt-5">
       <div className="flex items-center justify-between bg-white border border-red-400 rounded-lg m-4 p-3 px-3 sm:p-4 sm:px-7 lg:p-5 lg:px-8 w-full max-w-6xl mx-auto">
         <div className="flex items-center gap-2">
           <LiaShippingFastSolid className="text-gray-700 text-[20px] md:text-[25px] lg:text-[27px]" />
