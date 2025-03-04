@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight, ShoppingCart } from "lucide-react";
 
-export default function ProductCarousel() {
+export default function ElectronicsPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [containerWidth, setContainerWidth] = useState(0);
   const [itemWidth, setItemWidth] = useState(0);
@@ -15,111 +15,36 @@ export default function ProductCarousel() {
   const products = [
     {
       id: 1,
-      brand: "FLORES",
-      name: "FLORES Stylish Fashion Backpack...",
+      brand: "Apple",
+      name: "Apple iPhone 15 256GB Pink",
       image:
-        "https://res.cloudinary.com/duqoh8gf5/image/upload/v1740907355/1740907355729_fytona-medium-laptop-backpack-light-weight-for-school-collage-office-tuition-and-picnic-waterproof-backpack-blue-25-l-product-images-orvmjkuqezq-p607379380-0-202401161039.jpg",
-      originalPrice: "₹970.00",
-      discountedPrice: "₹850.00",
+        "https://res.cloudinary.com/duqoh8gf5/image/upload/v1736753969/1736753967866_apple-iphone-13-128-gb-pink-digital-o491997703-p590798557-0-202208221207.webp",
+      originalPrice: "28000.00",
+      discountedPrice: "25000.00",
       discount: "10%",
-      rating: 4,
-      backgroundColor: "#f5f0d9",
+      rating: 5,
     },
     {
       id: 2,
-      brand: "Motorola",
-      name: "Motorola Edge 50 Fusion 5G (Hot Pink)",
+      brand: "Apple",
+      name: "Apple iPhone 15 256GB Black",
       image:
-        "https://res.cloudinary.com/duqoh8gf5/image/upload/v1740907187/1740907187082_file_1734771942206_motorola-edge-50-fusion-5g-hot-pink-256-gb-12-gb-ram-product-images-orvvh2thgzw-p609069813-0-202405250532.webp",
-      originalPrice: "₹1,800.00",
-      discountedPrice: "₹15,600.00",
-      discount: "12%",
+        "https://res.cloudinary.com/duqoh8gf5/image/upload/v1736779231/1736779226041_apple-iphone-13-128-gb-midnight-black-digital-o491997699-p590798548-0-202208221207.webp",
+      originalPrice: "45000.00",
+      discountedPrice: "35000.00",
+      discount: "10%",
       rating: 4,
-      backgroundColor: "#ffffff",
     },
     {
       id: 3,
-      brand: "Altecia",
-      name: "Cotton Co Ord Set-Tie & Dye Tr...",
+      brand: "Motorola",
+      name: "Motorola Edge 50 Fusion 5G",
       image:
-        "https://res.cloudinary.com/duqoh8gf5/image/upload/v1740906985/1740906985518_modestouze-attires-women-s-mukaish-worked-ethnic-jacket-with-top-and-pant-set-product-images-rvziicqwq6-0-202403231855.jpg",
-      originalPrice: "₹1,750.00",
-      discountedPrice: "₹1,560.00",
-      discount: "10%",
-      rating: 5,
-      backgroundColor: "#ffd9d9",
-    },
-    {
-      id: 4,
-      brand: "VNEED",
-      name: "VNEED Women Embroidered",
-      image:
-        "https://res.cloudinary.com/duqoh8gf5/image/upload/v1740906814/1740906814557_deel-band-women-rayon-embroidered-kurta-pant-dupatta-set-product-images-rvz2bvyrm2-0-202404071602.webp",
-      originalPrice: "₹2,200.00",
-      discountedPrice: "₹1,600.00",
-      discount: "8%",
-      rating: 4,
-      backgroundColor: "#e6e6e6",
-    },
-    {
-      id: 5,
-      brand: "Trilok Fab",
-      name: "Buy New Trend Women Black Cotton Blend Top",
-      image:
-        "https://res.cloudinary.com/duqoh8gf5/image/upload/v1740663881/1740663879548_miss-ayse-women-s-multicolor-crepe-printed-top-product-images-rvvlrud6qm-0-202410111253.webp",
-      originalPrice: "₹2,200.00",
-      discountedPrice: "₹1,500.00",
-      discount: "10%",
-      rating: 4,
-      backgroundColor: "#f5f0d9",
-    },
-    {
-      id: 6,
-      brand: "Deel band",
-      name: "Deel Band Women Rayon Embroidered...",
-      image:
-        "https://res.cloudinary.com/duqoh8gf5/image/upload/v1740650263/1740650262333_buynewtrend-women-maroon-cotton-blend-top-product-images-rvb22aqlk7-1-202201130044.jpg",
-      originalPrice: "₹1,800.00",
-      discountedPrice: "₹1,500.00",
-      discount: "15%",
-      rating: 5,
-      backgroundColor: "#e6e6e6",
-    },
-    {
-      id: 7,
-      brand: "V-Mart",
-      name: "Black solid",
-      image:
-        "https://res.cloudinary.com/duqoh8gf5/image/upload/v1736781548/1736781543208_1000014029787-Green-GREEN-1000014029787_01-2100.jpg",
-      originalPrice: "₹735.00",
-      discountedPrice: "₹650.00",
+        "https://res.cloudinary.com/duqoh8gf5/image/upload/v1740907187/1740907187082_file_1734771942206_motorola-edge-50-fusion-5g-hot-pink-256-gb-12-gb-ram-product-images-orvvh2thgzw-p609069813-0-202405250532.webp",
+      originalPrice: "1800.00",
+      discountedPrice: "15600.00",
       discount: "12%",
-      rating: 5,
-      backgroundColor: "#ffffff",
-    },
-    {
-      id: 8,
-      brand: "V-Mart",
-      name: "Black solid",
-      image:
-        "https://res.cloudinary.com/duqoh8gf5/image/upload/v1736781548/1736781543208_1000014029787-Green-GREEN-1000014029787_01-2100.jpg",
-      originalPrice: "₹735.00",
-      discountedPrice: "₹650.00",
-      discount: "12%",
-      rating: 5,
-      backgroundColor: "#ffffff",
-    },
-    {
-      id: 9,
-      brand: "V-Mart",
-      name: "Black solid",
-      image:
-        "https://res.cloudinary.com/duqoh8gf5/image/upload/v1736781548/1736781543208_1000014029787-Green-GREEN-1000014029787_01-2100.jpg",
-      originalPrice: "₹735.00",
-      discountedPrice: "₹650.00",
-      discount: "12%",
-      rating: 5,
-      backgroundColor: "#ffffff",
+      rating: 3.5,
     },
   ];
 
@@ -261,15 +186,13 @@ export default function ProductCarousel() {
                           {product.discount}
                         </div>
                       )}
-                     <div className="w-full">
-                     <div className="w-full h-full flex items-center justify-center">
+                      <div className="w-full h-full flex items-center justify-center">
                         <img
                           src={product.image || "/placeholder.svg"}
                           alt={product.name}
                           className="max-h-full max-w-full object-fit transition-transform duration-300 hover:scale-105"
                         />
                       </div>
-                     </div>
                     </div>
 
                     <div className="p-3 flex flex-col flex-grow">

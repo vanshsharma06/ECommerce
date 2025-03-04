@@ -109,7 +109,7 @@ export default function Footer() {
               placeholder="Your Email Address"
               className="mt-3 w-full p-1 text-[9px] lg:text-[13px] lg:py-[10px] lg:px-[10px] border border-gray-300 rounded-md"
             />
-            <button className="mt-3 w-[80px] bg-red-500 text-white p-2 text-[9px] lg:text-[13px] rounded-md hover:bg-red-600">
+            <button className="mt-3 w-[80px] bg-red-500 text-white p-2 text-[9px] lg:text-[13px] lg:w-[100px] rounded-[3px] hover:bg-red-600">
               SUBSCRIBE
             </button>
             <div className="mt-2 flex items-center">
