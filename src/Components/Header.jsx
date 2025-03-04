@@ -136,10 +136,10 @@ export default function Header() {
           <input
             type="text"
             placeholder="Search for products..."
-            className="w-full bg-gray-200 text-gray-700 px-2 text-[11px] py-3 rounded-[5px] focus:outline-none sm:text-[9px] md:py-2 lg:py-3 lg:text-[13px]"
+            className="w-full bg-gray-200 text-gray-700 px-3 text-[12px] py-4 rounded-[5px] focus:outline-none sm:text-[9px] md:py-2 lg:py-3 lg:text-[13px]"
           />
           <Search
-            className="absolute right-2 top-3 md:top-2 lg:top-[14px] text-gray-500 cursor-pointer"
+            className="absolute right-2 top-4 md:top-2 lg:top-[14px] text-gray-500 cursor-pointer"
             style={{ fontSize: "17px" }}
           />
         </div>

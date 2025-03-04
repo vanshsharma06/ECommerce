@@ -44,7 +44,7 @@ const categories = [
 const Categories = () => {
   return (
     <div className="py-4">
-      <div className="container mx-auto px-5 sm:px-3 lg:px-18 grid grid-cols-8 sm:grid-cols-8 sm:gap-3 md:grid-cols-8 gap-1">
+      <div className="container mx-auto px-1 sm:px-3 lg:px-18 grid grid-cols-8 sm:grid-cols-8 sm:gap-3 md:grid-cols-8 gap-1">
         {categories.map((category, index) => (
           <div
             key={index}
@@ -53,7 +53,7 @@ const Categories = () => {
             <img
               src={category.imageSrc}
               alt={category.name}
-              className="w-6 h-6 mx-auto sm:w-10 sm:h-10 lg:w-16 lg:h-16"
+              className="w-13 h-8 mx-auto sm:w-10 sm:h-10 lg:w-16 lg:h-16"
             />
             <p className="text-center mt-1 font-medium text-gray-700 text-[6px] sm:text-[11px] lg:text-[14px] sm:mt-2">
               {category.name}
