@@ -44,22 +44,24 @@ const categories = [
 const Categories = () => {
   return (
     <div className="py-4">
-      <div className="container mx-auto px-1 sm:px-3 lg:px-18 grid grid-cols-8 sm:grid-cols-8 sm:gap-3 md:grid-cols-8 gap-1">
-        {categories.map((category, index) => (
-          <div
-            key={index}
-            className="bg-white p-1 sm:p-2 lg:p-3 rounded-[7px] shadow hover:shadow-lg transition"
-          >
-            <img
-              src={category.imageSrc}
-              alt={category.name}
-              className="w-13 h-8 mx-auto sm:w-10 sm:h-10 lg:w-16 lg:h-16"
-            />
-            <p className="text-center mt-1 font-medium text-gray-700 text-[8px] sm:text-[11px] lg:text-[14px] sm:mt-2">
-              {category.name}
-            </p>
-          </div>
-        ))}
+      <div className="container mx-auto px-1 sm:px-3 lg:px-18">
+        <div className="flex scrollbar-hide overflow-hidden sm:grid sm:grid-cols-8 sm:gap-3 md:grid-cols-8 gap-2 overflow-x-auto sm:overflow-visible no-scrollbar whitespace-nowrap">
+          {categories.map((category, index) => (
+            <div
+              key={index}
+              className="bg-white p-2 sm:p-2 lg:p-3 rounded-[7px] shadow hover:shadow-lg transition min-w-[20%] sm:min-w-0"
+            >
+              <img
+                src={category.imageSrc}
+                alt={category.name}
+                className="mx-auto sm:w-10 sm:h-10 lg:w-16 lg:h-16"
+              />
+              <p className="text-center mt-1 font-medium text-gray-700 text-[12px] sm:text-[12px] lg:text-[14px] sm:mt-2">
+                {category.name}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

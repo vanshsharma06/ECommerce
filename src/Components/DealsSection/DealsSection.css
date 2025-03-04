@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   background: #fff;
-  color: black;
+  color: rgb(92, 92, 92);
   border-radius: 100%;
   width: 40px;
   height: 40px;
@@ -12,6 +12,7 @@
   box-shadow: 0 1px 3px #0000001f, 0 1px 2px #0000003d !important;
   transition: all 0.2s;
   margin: 0px 4px !important;
+
   /* padding: 12px !important; */
 }
 
@@ -24,4 +25,46 @@
 .prev-btn:hover,
 .next-btn:hover {
   background: rgb(205, 88, 88);
+}
+
+@media ((min-width: 1000px) and (orientation: landscape)) {
+  .prev-btn,
+  .next-btn {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+  }
+  .swiper-button-prev:after,
+  .swiper-button-next:after {
+    font-size: 12px !important;
+  }
+}
+
+@media ((max-width: 600px)) {
+  .prev-btn,
+  .next-btn {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+  }
+  .prev-btn:after,
+  .next-btn:after {
+    font-size: 9px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  /* sm se chhoti screens ke liye */
+  .prev-btn,
+  .next-btn {
+    display: none !important;
+  }
+}
+
+@media (min-width: 640px) {
+  /* sm size se bade screens ke liye */
+  .prev-btn,
+  .next-btn {
+    display: flex; /* Ya jo bhi layout chahiye */
+  }
 }

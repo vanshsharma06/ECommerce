@@ -50,3 +50,19 @@
     font-size: 9px !important;
   }
 }
+
+@media (max-width: 640px) {
+  /* sm se chhoti screens ke liye */
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none !important;
+  }
+}
+
+@media (min-width: 640px) {
+  /* sm size se bade screens ke liye */
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: flex; /* Ya jo bhi layout chahiye */
+  }
+}

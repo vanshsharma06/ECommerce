@@ -212,7 +212,7 @@ const FilterableProducts = () => {
               Do not miss the current offers until the end of March.
             </p>
           </div>
-          <div className="flex overflow-x-auto border-b border-gray-200">
+          <div className="flex overflow-x-auto gap-2 py-2 scrollbar-hide overflow-hidden border-b-[1px] border-gray-200 pb-0">
             {categories.map((category) => (
               <button
                 key={category}
@@ -233,7 +233,7 @@ const FilterableProducts = () => {
           {/* Left scroll button */}
           <button
             onClick={() => scroll("left")}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full p-1 shadow-md hover:bg-white transition-all"
+            className="hidden sm:block absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full p-1 shadow-md hover:bg-white transition-all"
             aria-label="Scroll left"
           >
             <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-gray-700" />
@@ -262,24 +262,24 @@ const FilterableProducts = () => {
                 </div>
                 <div className="px-1">
                   <div className="p-2">
-                    <p className="text-[10px] sm:text-[8px] lg:text-[14px] text-gray-600 mb-0.5">
+                    <p className="text-[12px] sm:text-[13px] lg:text-[14px] text-gray-600 mb-0.5">
                       {product.brand}
                     </p>
-                    <p className="text-[10px] sm:text-[8px] lg:text-[13px] truncate">
+                    <p className="text-[12px] sm:text-[13px] lg:text-[14px] truncate">
                       {product.name}
                     </p>
-                    <div className="flex mb-1 text-[12px] sm:text-[12px] lg:text-[15px]">
+                    <div className="flex mb-1 text-[15px] sm:text-[16px] lg:text-[17px]">
                       {renderStars(product.rating)}
                     </div>
                     <div className="flex items-center gap-2 mb-[6px]">
-                      <span className="line-through text-gray-500 text-[10px] sm:text-[8px] lg:text-[14px]">
+                      <span className="line-through text-gray-500 text-[13px] sm:text-[13px] lg:text-[14px]">
                         {product.originalPrice}
                       </span>
-                      <span className="text-red-500 font-bold text-[10px] sm:text-[10px] lg:text-[14px]">
+                      <span className="text-red-500 font-bold text-[13px] sm:text-[13px] lg:text-[14px]">
                         {product.discountedPrice}
                       </span>
                     </div>
-                    <button className="w-full border border-red-500 text-[10px] sm:text-[8px] md:text-[12px] lg:text-[14px] lg:py-2 text-red-500 rounded py-[6px] sm:py-[4px] flex items-center justify-center gap-1 hover:bg-black hover:text-white transition-colors hover:border-black lg:mb-3 lg:mt-3">
+                    <button className="w-full border border-red-500 text-[12px] sm:text-[13px] md:text-[14px] lg:text-[14px] lg:py-2 text-red-500 rounded py-[6px] sm:py-[4px] flex items-center justify-center gap-1 hover:bg-black hover:text-white transition-colors hover:border-black lg:mb-3 lg:mt-3">
                       <span>🛒</span> ADD TO CART
                     </button>
                   </div>
@@ -291,7 +291,7 @@ const FilterableProducts = () => {
           {/* Right scroll button */}
           <button
             onClick={() => scroll("right")}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full p-1 shadow-md hover:bg-white transition-all"
+            className="hidden sm:block absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full p-1 shadow-md hover:bg-white transition-all"
             aria-label="Scroll right"
           >
             <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-gray-700" />

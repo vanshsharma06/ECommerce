@@ -48,7 +48,7 @@ export default function Header() {
             <img
               src={photo}
               alt="ClassyShop"
-              className="h-8 w-39 sm:h-10 sm:w-25 md:h-7 md:w-27 lg:h-11 lg:w-34"
+              className="h-9 w-35 sm:h-10 sm:w-25 md:h-7 md:w-27 lg:h-11 lg:w-34"
             />
           </div>
 
@@ -139,8 +139,8 @@ export default function Header() {
             className="w-full bg-gray-200 text-gray-700 px-3 text-[12px] py-4 rounded-[5px] focus:outline-none sm:text-[9px] md:py-2 lg:py-3 lg:text-[13px]"
           />
           <Search
-            className="absolute right-2 top-4 md:top-2 lg:top-[14px] text-gray-500 cursor-pointer"
-            style={{ fontSize: "17px" }}
+            className="absolute right-3 top-4 md:top-2 lg:top-[14px] text-gray-400 cursor-pointer"
+            style={{ fontSize: "21px" }}
           />
         </div>
       </nav>
@@ -167,9 +167,9 @@ export default function Header() {
               className="w-full bg-gray-200 text-gray-700 px-2 text-[10px] py-2 rounded-[5px] focus:outline-none sm:text-[9px] md:py-2 lg:py-3 lg:text-[13px]"
             />
             <Search
-              className="absolute right-2 top-2 md:top-2 lg:top-[14px] text-gray-500 cursor-pointer"
-              style={{ fontSize: "17px" }}
-            />
+            className="absolute right-3 top-4 md:top-2 lg:top-[14px] text-gray-400 cursor-pointer"
+            style={{ fontSize: "21px" }}
+          />
           </div>
         </div>
 

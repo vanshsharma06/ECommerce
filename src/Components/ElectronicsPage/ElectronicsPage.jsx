@@ -146,7 +146,7 @@ export default function ElectronicsPage() {
         <div className="relative" ref={containerRef}>
           <button
             onClick={() => scroll("left")}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full p-1.5 shadow-md hover:bg-white transition-all"
+            className="hidden sm:block absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full p-1.5 shadow-md hover:bg-white transition-all"
             aria-label="Scroll left"
           >
             <ChevronLeft className="h-5 w-5 text-gray-700" />
@@ -154,7 +154,7 @@ export default function ElectronicsPage() {
 
           <button
             onClick={() => scroll("right")}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full p-1.5 shadow-md hover:bg-white transition-all"
+            className="hidden sm:block absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full p-1.5 shadow-md hover:bg-white transition-all"
             aria-label="Scroll right"
           >
             <ChevronRight className="h-5 w-5 text-gray-700" />

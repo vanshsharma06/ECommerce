@@ -18,33 +18,33 @@ export default function CategoryPanel({ IsOpenCatPanel, setIsOpenCatPanel }) {
   const DrawerList = (
     <Box
       sx={{
-        width: { xs: 120, sm: 250, md: 200 }, // Mobile pe aur chhota
+        width: { xs: 170, sm: 250, md: 200 }, // Mobile pe aur chhota
       }}
       role="presentation"
       onClick={toggleDrawer(false)}
     >
-      <h3 className="p-2 text-[10px] sm:text-[12px] md:text-[14px] flex justify-center">
+      <h3 className="p-3 text-[15px] sm:text-[12px] md:text-[14px] flex justify-center">
         Shop By Categories
       </h3>
       <List>
         {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
-              <ListItemIcon sx={{ minWidth: { xs: 25, sm: 40 } }}>
+              <ListItemIcon sx={{ minWidth: { xs: 31, sm: 44 } }}>
                 {index === 0 ? (
-                  <InboxIcon sx={{ fontSize: { xs: 16, sm: 20, md: 24 } }} />
+                  <InboxIcon sx={{ fontSize: { xs: 23, sm: 31, md: 24 } }} />
                 ) : index === 1 ? (
-                  <MailIcon sx={{ fontSize: { xs: 16, sm: 20, md: 24 } }} />
+                  <MailIcon sx={{ fontSize: { xs: 23, sm: 31, md: 24 } }} />
                 ) : index === 2 ? (
-                  <InboxIcon sx={{ fontSize: { xs: 16, sm: 20, md: 24 } }} />
+                  <InboxIcon sx={{ fontSize: { xs: 23, sm: 31, md: 24 } }} />
                 ) : (
-                  <MailIcon sx={{ fontSize: { xs: 16, sm: 20, md: 24 } }} />
+                  <MailIcon sx={{ fontSize: { xs: 23, sm: 31, md: 24 } }} />
                 )}
               </ListItemIcon>
               <ListItemText
                 primary={text}
                 primaryTypographyProps={{
-                  fontSize: { xs: "8px", sm: "12px", md: "14px" }, // Text size change
+                  fontSize: { xs: "12px", sm: "13px", md: "14px" }, // Text size change
                 }}
               />
             </ListItemButton>
@@ -56,19 +56,19 @@ export default function CategoryPanel({ IsOpenCatPanel, setIsOpenCatPanel }) {
         {["All mail", "Trash", "Spam"].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
-              <ListItemIcon sx={{ minWidth: { xs: 25, sm: 40 } }}>
+              <ListItemIcon sx={{ minWidth: { xs: 31, sm: 43 } }}>
                 {index === 0 ? (
-                  <InboxIcon sx={{ fontSize: { xs: 16, sm: 20, md: 24 } }} />
+                  <InboxIcon sx={{ fontSize: { xs: 23, sm: 31, md: 24 } }} />
                 ) : index === 1 ? (
-                  <MailIcon sx={{ fontSize: { xs: 16, sm: 20, md: 24 } }} />
+                  <MailIcon sx={{ fontSize: { xs: 23, sm: 31, md: 24 } }} />
                 ) : (
-                  <InboxIcon sx={{ fontSize: { xs: 16, sm: 20, md: 24 } }} />
+                  <InboxIcon sx={{ fontSize: { xs: 23, sm: 31, md: 24 } }} />
                 )}
               </ListItemIcon>
               <ListItemText
                 primary={text}
                 primaryTypographyProps={{
-                  fontSize: { xs: "7px", sm: "12px", md: "14px" },
+                  fontSize: { xs: "12px", sm: "13px", md: "14px" },
                 }}
               />
             </ListItemButton>
