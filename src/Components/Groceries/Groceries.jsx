@@ -130,7 +130,7 @@ export default function Groceries() {
   return (
     <div className="bg-white">
       <div className="max-w-[2000px] mx-auto px-4 py-4 lg:px-15">
-        <h2 className="text-2xl font-medium text-gray-800 mb-6">Groceries</h2>
+        <h2 className="text-[15px] font-medium text-gray-800 mb-2">Groceries</h2>
 
         <div className="relative" ref={containerRef}>
           <button
@@ -157,7 +157,7 @@ export default function Groceries() {
             onTouchEnd={handleTouchEnd}
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
-            <div ref={itemsRef} className="flex gap-4 py-2">
+            <div ref={itemsRef} className="flex gap-3 md:gap-4 py-2">
               {products.map((product) => (
                 <div
                   key={product.id}
