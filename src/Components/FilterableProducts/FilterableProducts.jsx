@@ -2,8 +2,9 @@
 
 import { useState, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import ProductDetail from "../ProductDetail/ProductDetail";
 
-const FilterableProducts = () => {
+const FilterableProductsWithDetail = () => {
   const categories = [
     "FASHION",
     "ELECTRONICS",
@@ -16,13 +17,14 @@ const FilterableProducts = () => {
   ];
 
   const [activeCategory, setActiveCategory] = useState("FASHION");
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const scrollContainerRef = useRef(null);
 
   const allProducts = [
     {
       id: 1,
       brand: "RARE RABBIT",
-      name: "Men Layer Regular Fit Spread...",
+      name: "Men Layer Regular Fit Spread Collar Cotton Shirt",
       rating: 5,
       originalPrice: "₹950.00",
       discountedPrice: "₹850.00",
@@ -200,6 +202,14 @@ const FilterableProducts = () => {
     }
   };
 
+  const handleProductClick = (product) => {
+    setSelectedProduct(product);
+  };
+
+  const handleCloseDetail = () => {
+    setSelectedProduct(null);
+  };
+
   return (
     <div className="bg-white">
       <div className="mx-auto px-2 py-2 sm:px-3 sm:py-2 md:px-3 lg:px-20 lg:py-3 font-sans bg-white w-full max-w-[2200px]">
@@ -248,7 +258,8 @@ const FilterableProducts = () => {
             {filteredProducts.map((product) => (
               <div
                 key={product.id}
-                className="flex-shrink-0 w-[160px] sm:w-[180px] lg:w-[220px] border-1 border-gray-200 rounded overflow-hidden transition-transform hover:translate-y-[-3px] hover:shadow-md "
+                className="flex-shrink-0 w-[160px] sm:w-[180px] lg:w-[220px] border-1 border-gray-200 rounded overflow-hidden transition-transform hover:translate-y-[-3px] hover:shadow-md cursor-pointer"
+                onClick={() => handleProductClick(product)}
               >
                 <div className="relative aspect-[4/5] ">
                   <img
@@ -279,7 +290,14 @@ const FilterableProducts = () => {
                         {product.discountedPrice}
                       </span>
                     </div>
-                    <button className="w-full border border-red-500 text-[12px] sm:text-[13px] md:text-[14px] lg:text-[14px] lg:py-2 text-red-500 rounded py-[6px] sm:py-[4px] flex items-center justify-center gap-1 hover:bg-black hover:text-white transition-colors hover:border-black lg:mb-3 lg:mt-3">
+                    <button
+                      className="w-full border border-red-500 text-[12px] sm:text-[13px] md:text-[14px] lg:text-[14px] lg:py-2 text-red-500 rounded py-[6px] sm:py-[4px] flex items-center justify-center gap-1 hover:bg-black hover:text-white transition-colors hover:border-black lg:mb-3 lg:mt-3"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        // You can add cart functionality here
+                        alert(`Added ${product.name} to cart!`);
+                      }}
+                    >
                       <span>🛒</span> ADD TO CART
                     </button>
                   </div>
@@ -298,8 +316,13 @@ const FilterableProducts = () => {
           </button>
         </div>
       </div>
+
+      {/* Product Detail Page */}
+      {selectedProduct && (
+        <ProductDetail product={selectedProduct} onClose={handleCloseDetail} />
+      )}
     </div>
   );
 };
 
-export default FilterableProducts;
+export default FilterableProductsWithDetail;

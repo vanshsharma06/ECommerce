@@ -32,7 +32,7 @@ export default function Navigation() {
         </div>
 
         {/* ✅ Bottom Section: Navigation Links */}
-        <div className="mt- flex flex-wrap justify-center pt-1">
+        <div className="flex justify-center gap-5 pt-1">
           {[
             "Home",
             "Fashion",
@@ -46,8 +46,8 @@ export default function Navigation() {
           ].map((item, index) => (
             <button
               key={item}
-              className={`px-[7px] md:px-[1] py-1 text-[13px] hover:text-red-500 transition-all duration-200 
-                ${index >= 6 ? "hidden sm:inline-block" : ""} `}
+              className={`font-semibold  md:px-1 py-1 text-[10px] hover:text-red-500 transition-all duration-200 
+                ${index >= 6 ? "hidden sm:inline-block " : ""} `}
             >
               {item}
             </button>
