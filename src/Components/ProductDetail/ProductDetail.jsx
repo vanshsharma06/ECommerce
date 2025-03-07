@@ -197,10 +197,7 @@ export default function ProductDetail({ product, onClose }) {
               </span>
             </div>
 
-            <p className="mt-4 text-gray-600">
-              {product.description ||
-                "Kurta: The kurta is the top piece, which is a long tunic-style garment that can vary in length, sleeve style, and neckline. In this set, it is made from rayon fabric, which is known for its softness, smooth texture, and breathability. Rayon kurta often comes in a variety of prints, patterns, and colors, catering to different tastes and occasions."}
-            </p>
+            <p className="mt-4 text-gray-600">{product.description}</p>
 
             {/* Size Selection - Only show for clothing category */}
             {product.category === "clothing" && (
@@ -285,8 +282,7 @@ export default function ProductDetail({ product, onClose }) {
             {activeTab === "Description" ? (
               <div className="border border-gray-200 rounded-md p-4">
                 <p className="text-gray-700">
-                  {product.description ||
-                    "Kurta: The kurta is the top piece, which is a long tunic-style garment that can vary in length, sleeve style, and neckline. In this set, it is made from rayon fabric, which is known for its softness, smooth texture, and breathability. Rayon kurta often comes in a variety of prints, patterns, and colors, catering to different tastes and occasions."}
+                  {product.description}
                 </p>
               </div>
             ) : (

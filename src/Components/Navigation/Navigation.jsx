@@ -32,7 +32,7 @@ export default function Navigation() {
         </div>
 
         {/* ✅ Bottom Section: Navigation Links */}
-        <div className="flex justify-center gap-5 pt-1">
+        <div className="flex justify-center gap-4 pt-1.5 ">
           {[
             "Home",
             "Fashion",
@@ -46,7 +46,7 @@ export default function Navigation() {
           ].map((item, index) => (
             <button
               key={item}
-              className={`font-semibold  md:px-1 py-1 text-[10px] hover:text-red-500 transition-all duration-200 
+              className={`font-medium md:px-1 py-1 text-[13px] hover:text-red-500 transition-all duration-200 
                 ${index >= 6 ? "hidden sm:inline-block " : ""} `}
             >
               {item}
@@ -71,7 +71,7 @@ export default function Navigation() {
         </button>
 
         {/* Navigation Links as Buttons */}
-        <div className="text-[7px] font-medium flex justify-center sm:text-[8px] md:text-[8px] md:gap-2 lg:text-[11px] xl:text-[13px] lg:gap-4">
+        <div className="text-[7px] font-medium flex justify-center sm:text-[8px] md:text-[8px] md:gap-2 lg:text-[12px] xl:text-[15px] lg:gap-4">
           {[
             "Home",
             "Fashion",
