@@ -1,9 +1,17 @@
+"use client";
+
 import { useState } from "react";
 import { Menu, ExpandMore, RocketLaunch } from "@mui/icons-material";
-import CategoryPanel from "./CategoryPanel";
+import CategoryPanel from "../CategoryPanel/CategoryPanel";
 
-export default function Navigation() {
-  const [IsOpenCatPanel, setIsOpenCatPanel] = useState(false);
+const Navigation = () => {
+  const [isOpenCatPanel, setIsOpenCatPanel] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+
+  const handleCategoryClick = (category) => {
+    setSelectedCategory(category);
+    setIsOpenCatPanel(true);
+  };
 
   return (
     <>
@@ -32,7 +40,7 @@ export default function Navigation() {
         </div>
 
         {/* ✅ Bottom Section: Navigation Links */}
-        <div className="flex justify-center gap-4 pt-1.5 ">
+        <div className="flex justify-center gap-5 pt-1">
           {[
             "Home",
             "Fashion",
@@ -46,16 +54,21 @@ export default function Navigation() {
           ].map((item, index) => (
             <button
               key={item}
-              className={`font-medium md:px-1 py-1 text-[13px] hover:text-red-500 transition-all duration-200 
-                ${index >= 6 ? "hidden sm:inline-block " : ""} `}
+              className={`relative font-semibold md:px-1 py-1 text-[10px] transition-all duration-200 
+                ${index >= 6 ? "hidden sm:inline-block " : ""}`}
+              onClick={() => {
+                if (item !== "Home") handleCategoryClick(item);
+              }}
             >
               {item}
+              {/* ✅ Underline Effect */}
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-red-500 transition-all duration-200 group-hover:w-full"></span>
             </button>
           ))}
         </div>
       </nav>
 
-      {/* ✅ Tablet/Desktop Design (Visible from sm:640px) */}
+      {/* ✅ Desktop Navigation (Visible from sm:640px) */}
       <nav className="hidden sm:flex items-center justify-between shadow bg-white text-black font-sans text-[10px] md:text-[10px] lg:text-[10px] xl:text-[13px] py-2 px-3">
         {/* Shop by Categories Dropdown Button */}
         <button
@@ -70,8 +83,8 @@ export default function Navigation() {
           />
         </button>
 
-        {/* Navigation Links as Buttons */}
-        <div className="text-[7px] font-medium flex justify-center sm:text-[8px] md:text-[8px] md:gap-2 lg:text-[12px] xl:text-[15px] lg:gap-4">
+        {/* Navigation Links */}
+        <div className="text-[7px] font-medium flex justify-center sm:text-[8px] md:text-[8px] md:gap-2 lg:text-[11px] xl:text-[13px] lg:gap-4">
           {[
             "Home",
             "Fashion",
@@ -82,37 +95,36 @@ export default function Navigation() {
             "Beauty",
             "Wellness",
             "Jewellery",
-          ]
-            .slice(0, 5) // Mobile pe sirf 5 items
-            .concat(
-              window.innerWidth >= 640
-                ? ["Groceries", "Beauty", "Wellness"]
-                : []
-            )
-            .concat(window.innerWidth >= 1024 ? ["Jewellery"] : []) // Laptop+ me sab dikhaye
-            .map((item) => (
-              <button
-                key={item}
-                className="relative px-1 py-1 hover:text-red-500 transition-all duration-200"
-              >
-                {item}
-                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-red-500 transition-all duration-200 hover:w-full"></span>
-              </button>
-            ))}
+          ].map((item) => (
+            <button
+              key={item}
+              className="relative px-1 py-1 transition-all duration-200 group"
+              onClick={() => {
+                if (item !== "Home") handleCategoryClick(item);
+              }}
+            >
+              {item}
+              {/* ✅ Underline Effect */}
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-red-500 transition-all duration-200 group-hover:w-full"></span>
+            </button>
+          ))}
         </div>
 
-        {/* Free International Delivery Button */}
+        {/* Free International Delivery */}
         <div className="flex items-center space-x-1 px-2 py-1">
           <RocketLaunch style={{ fontSize: "21px" }} />
           <span>Free International Delivery</span>
         </div>
       </nav>
 
-      {/* Category Panel - Drawer */}
+      {/* ✅ Category Panel */}
       <CategoryPanel
-        IsOpenCatPanel={IsOpenCatPanel}
-        setIsOpenCatPanel={setIsOpenCatPanel}
+        isOpen={isOpenCatPanel}
+        onClose={() => setIsOpenCatPanel(false)}
+        selectedCategory={selectedCategory}
       />
     </>
   );
-}
+};
+
+export default Navigation;
