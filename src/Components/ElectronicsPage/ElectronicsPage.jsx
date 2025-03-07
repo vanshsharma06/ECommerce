@@ -4,11 +4,11 @@ import ProductDetail from "../ProductDetail/ProductDetail";
 
 export default function ElectronicsPage() {
   const [selectedProduct, setSelectedProduct] = useState(null); // State to manage selected product
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [containerWidth, setContainerWidth] = useState(0);
-  const [itemWidth, setItemWidth] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
+  // const [currentIndex, setCurrentIndex] = useState(0);
+  // const [containerWidth, setContainerWidth] = useState(0);
+  // const [itemWidth, setItemWidth] = useState(0);
+  // const [isDragging, setIsDragging] = useState(false);
+  // const [startX, setStartX] = useState(0);
 
   const containerRef = useRef(null);
   const scrollContainerRef = useRef(null);
@@ -48,6 +48,39 @@ export default function ElectronicsPage() {
       discount: "12%",
       rating: 3.5,
     },
+    {
+      id: 4,
+      brand: "Apple",
+      name: "Apple iPhone 15 256GB Pink",
+      image:
+        "https://res.cloudinary.com/duqoh8gf5/image/upload/v1736753969/1736753967866_apple-iphone-13-128-gb-pink-digital-o491997703-p590798557-0-202208221207.webp",
+      originalPrice: "28000.00",
+      discountedPrice: "25000.00",
+      discount: "10%",
+      rating: 5,
+    },
+    {
+      id: 5,
+      brand: "Apple",
+      name: "Apple iPhone 15 256GB Black",
+      image:
+        "https://res.cloudinary.com/duqoh8gf5/image/upload/v1736779231/1736779226041_apple-iphone-13-128-gb-midnight-black-digital-o491997699-p590798548-0-202208221207.webp",
+      originalPrice: "45000.00",
+      discountedPrice: "35000.00",
+      discount: "10%",
+      rating: 4,
+    },
+    {
+      id: 6,
+      brand: "Motorola",
+      name: "Motorola Edge 50 Fusion 5G",
+      image:
+        "https://res.cloudinary.com/duqoh8gf5/image/upload/v1740907187/1740907187082_file_1734771942206_motorola-edge-50-fusion-5g-hot-pink-256-gb-12-gb-ram-product-images-orvvh2thgzw-p609069813-0-202405250532.webp",
+      originalPrice: "1800.00",
+      discountedPrice: "15600.00",
+      discount: "12%",
+      rating: 3.5,
+    },
   ];
 
   const handleProductClick = (product) => {
@@ -56,6 +89,20 @@ export default function ElectronicsPage() {
 
   const handleCloseDetail = () => {
     setSelectedProduct(null); // Close product detail
+  };
+  const scroll = (direction) => {
+    if (scrollContainerRef.current) {
+      const container = scrollContainerRef.current;
+      const scrollAmount =
+        direction === "left"
+          ? -container.clientWidth / 2
+          : container.clientWidth / 2;
+
+      container.scrollBy({
+        left: scrollAmount,
+        behavior: "smooth",
+      });
+    }
   };
 
   const renderStars = (rating) => (
@@ -86,12 +133,19 @@ export default function ElectronicsPage() {
           </h2>
 
           <div className="relative" ref={containerRef}>
+            <button
+              onClick={() => scroll("left")}
+              className="hidden sm:block absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full p-1 shadow-md hover:bg-white transition-all"
+              aria-label="Scroll left"
+            >
+              <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-gray-700" />
+            </button>
             <div
               className="overflow-x-auto scrollbar-hide scroll-smooth"
               ref={scrollContainerRef}
               style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             >
-              <div ref={itemsRef} className="flex gap-[10px] md:gap-4 py-2">
+              <div ref={itemsRef} className="flex gap-[10px] md:gap-3 py-2">
                 {products.map((product) => (
                   <div
                     key={product.id}
@@ -136,7 +190,14 @@ export default function ElectronicsPage() {
                             </span>
                           </div>
 
-                          <button className="w-full border border-red-500 text-red-500 py-1.5 rounded flex items-center justify-center text-xs font-medium hover:bg-red-50 transition-colors">
+                          <button
+                            className="w-full border border-red-500 text-[12px] sm:text-[13px] md:text-[14px] lg:text-[14px] lg:py-2 text-red-500 rounded py-[6px] sm:py-[4px] flex items-center justify-center gap-1 hover:bg-black hover:text-white transition-colors hover:border-black lg:mb-3 lg:mt-3"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              // You can add cart functionality here
+                              alert(`Added ${product.name} to cart!`);
+                            }}
+                          >
                             <ShoppingCart className="h-3.5 w-3.5 mr-1" />
                             ADD TO CART
                           </button>
@@ -146,6 +207,13 @@ export default function ElectronicsPage() {
                   </div>
                 ))}
               </div>
+              <button
+                onClick={() => scroll("right")}
+                className="hidden sm:block absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full p-1 shadow-md hover:bg-white transition-all"
+                aria-label="Scroll right"
+              >
+                <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-gray-700" />
+              </button>
             </div>
           </div>
         </div>

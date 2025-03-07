@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+// import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ShoppingCart } from "lucide-react";
 import ProductDetail from "../ProductDetail/ProductDetail";
 
 const FilterableProductsWithDetail = () => {
@@ -32,6 +33,9 @@ const FilterableProductsWithDetail = () => {
       image:
         "https://res.cloudinary.com/duqoh8gf5/image/upload/v1736781297/1736781294242_montrez-men-light-blue-solid-jacket-product-images-rvwmdqy2dw-0-202311201747.jpg",
       category: "FASHION",
+      images: [
+        "https://res.cloudinary.com/duqoh8gf5/image/upload/v1736781297/1736781294242_montrez-men-light-blue-solid-jacket-product-images-rvwmdqy2dw-0-202311201747.jpg",
+      ],
     },
     {
       id: 2,
@@ -298,7 +302,8 @@ const FilterableProductsWithDetail = () => {
                         alert(`Added ${product.name} to cart!`);
                       }}
                     >
-                      <span>🛒</span> ADD TO CART
+                      <ShoppingCart className="h-3.5 w-3.5 mr-1" />
+                      ADD TO CART
                     </button>
                   </div>
                 </div>
