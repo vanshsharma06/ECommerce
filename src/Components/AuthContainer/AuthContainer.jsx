@@ -6,7 +6,7 @@ const AuthPage = ({ isLogin, toggleAuth }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+    <div className="flex justify-center items-center py-10 px-5 md:py-10 bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-lg w-96">
         <h2 className="text-center text-xl font-semibold mb-4">
           {isLogin ? "Login to your account" : "Register with a new account"}
@@ -76,7 +76,10 @@ const AuthContainer = () => {
   return (
     <>
       {console.log("Current isLogin state:", isLogin)}
-      <AuthPage isLogin={isLogin} toggleAuth={() => setIsLogin((prev) => !prev)} />
+      <AuthPage
+        isLogin={isLogin}
+        toggleAuth={() => setIsLogin((prev) => !prev)}
+      />
     </>
   );
 };

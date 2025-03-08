@@ -1,35 +1,44 @@
-"use client"
+"use client";
 
-import { useState, useRef, useEffect } from "react"
-import { Heart, BarChart2, Star, Upload, ChevronLeft, ChevronRight, ShoppingCart, X } from "lucide-react"
-import PropTypes from "prop-types"
+import { useState, useRef, useEffect } from "react";
+import {
+  Heart,
+  BarChart2,
+  Star,
+  Upload,
+  ChevronLeft,
+  ChevronRight,
+  ShoppingCart,
+  X,
+} from "lucide-react";
+import PropTypes from "prop-types";
 
 export default function ProductDetail({ product, onClose }) {
-  const [selectedSize, setSelectedSize] = useState("M")
-  const [quantity, setQuantity] = useState(1)
-  const [activeTab, setActiveTab] = useState("Description")
-  const [reviews, setReviews] = useState([])
-  const [newReview, setNewReview] = useState("")
-  const [userRating, setUserRating] = useState(0)
-  const [hoverRating, setHoverRating] = useState(0)
-  const [reviewImages, setReviewImages] = useState([])
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
-  const fileInputRef = useRef(null)
-  const modalRef = useRef(null)
+  const [selectedSize, setSelectedSize] = useState("M");
+  const [quantity, setQuantity] = useState(1);
+  const [activeTab, setActiveTab] = useState("Description");
+  const [reviews, setReviews] = useState([]);
+  const [newReview, setNewReview] = useState("");
+  const [userRating, setUserRating] = useState(0);
+  const [hoverRating, setHoverRating] = useState(0);
+  const [reviewImages, setReviewImages] = useState([]);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const fileInputRef = useRef(null);
+  const modalRef = useRef(null);
 
   // Handle click outside to close
   useEffect(() => {
     function handleClickOutside(event) {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
-        onClose()
+        onClose();
       }
     }
 
-    document.addEventListener("mousedown", handleClickOutside)
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside)
-    }
-  }, [onClose])
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [onClose]);
 
   // Sample product images - in a real app, these would come from the product data
   const productImages = [
@@ -38,23 +47,26 @@ export default function ProductDetail({ product, onClose }) {
     "/placeholder.svg?height=600&width=600&text=Image+3",
     "/placeholder.svg?height=600&width=600&text=Image+4",
     "/placeholder.svg?height=600&width=600&text=Image+5",
-  ]
+  ];
 
   const renderStars = (rating) => {
     return [...Array(5)].map((_, i) => (
-      <span key={i} className={i < rating ? "text-yellow-400" : "text-gray-300"}>
+      <span
+        key={i}
+        className={i < rating ? "text-yellow-400" : "text-gray-300"}
+      >
         ★
       </span>
-    ))
-  }
+    ));
+  };
 
   const handleQuantityChange = (value) => {
-    if (quantity + value > 0) setQuantity(quantity + value)
-  }
+    if (quantity + value > 0) setQuantity(quantity + value);
+  };
 
   const handleReviewSubmit = (e) => {
-    e.preventDefault()
-    if (newReview.trim() === "" || userRating === 0) return
+    e.preventDefault();
+    if (newReview.trim() === "" || userRating === 0) return;
 
     const review = {
       id: Date.now(),
@@ -63,45 +75,49 @@ export default function ProductDetail({ product, onClose }) {
       date: new Date().toLocaleDateString(),
       images: reviewImages,
       userName: "Customer", // In a real app, this would be the logged-in user's name
-    }
+    };
 
-    setReviews([...reviews, review])
-    setNewReview("")
-    setUserRating(0)
-    setReviewImages([])
-  }
+    setReviews([...reviews, review]);
+    setNewReview("");
+    setUserRating(0);
+    setReviewImages([]);
+  };
 
   const handleImageUpload = (e) => {
-    const files = Array.from(e.target.files)
-    if (files.length === 0) return
+    const files = Array.from(e.target.files);
+    if (files.length === 0) return;
 
     const newImages = files.map((file) => ({
       id: Date.now() + Math.random(),
       url: URL.createObjectURL(file),
       name: file.name,
-    }))
+    }));
 
-    setReviewImages([...reviewImages, ...newImages])
-  }
+    setReviewImages([...reviewImages, ...newImages]);
+  };
 
   const removeImage = (id) => {
-    setReviewImages(reviewImages.filter((img) => img.id !== id))
-  }
+    setReviewImages(reviewImages.filter((img) => img.id !== id));
+  };
 
   const nextImage = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex === productImages.length - 1 ? 0 : prevIndex + 1))
-  }
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === productImages.length - 1 ? 0 : prevIndex + 1
+    );
+  };
 
   const prevImage = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex === 0 ? productImages.length - 1 : prevIndex - 1))
-  }
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 0 ? productImages.length - 1 : prevIndex - 1
+    );
+  };
 
   const selectImage = (index) => {
-    setCurrentImageIndex(index)
-  }
+    setCurrentImageIndex(index);
+  };
 
   return (
-    <div className="fixed inset-0 bg-black/50 z-50 overflow-auto flex items-center justify-center p-4">
+    <div className="fixed inset-0 bg-black/50 z-50 overflow-auto flex items-center justify-center md:p-4">
       <div
         ref={modalRef}
         className="bg-white rounded-lg shadow-xl max-w-6xl w-full max-h-[94vh] overflow-auto"
@@ -115,7 +131,7 @@ export default function ProductDetail({ product, onClose }) {
           <X className="h-5 w-5" />
         </button>
 
-        <div className="px-4 py-6 md:px-6 md:py-8">
+        <div className="px-3 py-6 md:px-6 md:py-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
             {/* Image Gallery Section */}
             <div className="flex flex-col gap-4">
@@ -151,13 +167,15 @@ export default function ProductDetail({ product, onClose }) {
               </div>
 
               {/* Thumbnails */}
-              <div className="flex gap-2 overflow-x-auto pb-2">
+              <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
                 {productImages.map((img, index) => (
                   <button
                     key={index}
                     onClick={() => selectImage(index)}
                     className={`w-20 h-20 flex-shrink-0 border-2 rounded-md overflow-hidden ${
-                      currentImageIndex === index ? "border-red-500" : "border-gray-200"
+                      currentImageIndex === index
+                        ? "border-red-500"
+                        : "border-gray-200"
                     }`}
                   >
                     <img
@@ -172,19 +190,29 @@ export default function ProductDetail({ product, onClose }) {
 
             {/* Product Details */}
             <div className="flex flex-col">
-              <h1 className="text-2xl md:text-3xl font-medium text-gray-800">{product.name}</h1>
+              <h1 className="text-2xl md:text-3xl font-medium text-gray-800">
+                {product.name}
+              </h1>
               <div className="mt-2 flex items-center gap-2">
                 <span className="text-gray-600">Brand:</span>
                 <span className="font-medium">{product.brand}</span>
               </div>
               <div className="mt-2 flex items-center gap-2">
-                <div className="flex text-lg">{renderStars(product.rating)}</div>
-                <span className="text-gray-600">Review ({reviews.length || 0})</span>
+                <div className="flex text-lg">
+                  {renderStars(product.rating)}
+                </div>
+                <span className="text-gray-600">
+                  Review ({reviews.length || 0})
+                </span>
               </div>
 
               <div className="mt-4 flex items-center gap-3">
-                <span className="text-2xl font-bold text-red-500">{product.discountedPrice}</span>
-                <span className="text-gray-500 line-through">{product.originalPrice}</span>
+                <span className="text-2xl font-bold text-red-500">
+                  {product.discountedPrice}
+                </span>
+                <span className="text-gray-500 line-through">
+                  {product.originalPrice}
+                </span>
                 <span className="bg-red-100 text-red-600 px-2 py-0.5 text-sm rounded">
                   Available In Stock: 1156 items
                 </span>
@@ -204,7 +232,9 @@ export default function ProductDetail({ product, onClose }) {
                       <button
                         key={size}
                         className={`w-10 h-10 border ${
-                          selectedSize === size ? "border-gray-800 font-medium" : "border-gray-300"
+                          selectedSize === size
+                            ? "border-gray-800 font-medium"
+                            : "border-gray-300"
                         }`}
                         onClick={() => setSelectedSize(size)}
                       >
@@ -215,16 +245,24 @@ export default function ProductDetail({ product, onClose }) {
                 </div>
               )}
 
-              <p className="mt-6 text-green-600 font-medium">Free Shipping (Est. Delivery Time 2-3 Days)</p>
+              <p className="mt-6 text-green-600 font-medium">
+                Free Shipping (Est. Delivery Time 2-3 Days)
+              </p>
 
               {/* Quantity & Cart Buttons */}
               <div className="mt-6 flex items-center gap-4">
                 <div className="flex items-center border border-gray-300">
-                  <button className="px-3 py-2 border-r border-gray-300" onClick={() => handleQuantityChange(-1)}>
+                  <button
+                    className="px-3 py-2 border-r border-gray-300"
+                    onClick={() => handleQuantityChange(-1)}
+                  >
                     -
                   </button>
                   <span className="px-4 py-2">{quantity}</span>
-                  <button className="px-3 py-2 border-l border-gray-300" onClick={() => handleQuantityChange(1)}>
+                  <button
+                    className="px-3 py-2 border-l border-gray-300"
+                    onClick={() => handleQuantityChange(1)}
+                  >
                     +
                   </button>
                 </div>
@@ -278,18 +316,27 @@ export default function ProductDetail({ product, onClose }) {
                   {reviews.length > 0 ? (
                     <div className="space-y-6">
                       {reviews.map((review) => (
-                        <div key={review.id} className="border-b border-gray-200 pb-6">
+                        <div
+                          key={review.id}
+                          className="border-b border-gray-200 pb-6"
+                        >
                           <div className="flex justify-between items-start">
                             <div>
                               <p className="font-medium">{review.userName}</p>
-                              <p className="text-sm text-gray-500">{review.date}</p>
+                              <p className="text-sm text-gray-500">
+                                {review.date}
+                              </p>
                             </div>
                             <div className="flex">
                               {[...Array(5)].map((_, i) => (
                                 <Star
                                   key={i}
                                   size={16}
-                                  className={i < review.rating ? "fill-yellow-400 text-yellow-400" : "text-gray-300"}
+                                  className={
+                                    i < review.rating
+                                      ? "fill-yellow-400 text-yellow-400"
+                                      : "text-gray-300"
+                                  }
                                 />
                               ))}
                             </div>
@@ -298,7 +345,10 @@ export default function ProductDetail({ product, onClose }) {
                           {review.images.length > 0 && (
                             <div className="mt-3 flex flex-wrap gap-2">
                               {review.images.map((img) => (
-                                <div key={img.id} className="w-16 h-16 relative">
+                                <div
+                                  key={img.id}
+                                  className="w-16 h-16 relative"
+                                >
                                   <img
                                     src={img.url || "/placeholder.svg"}
                                     alt="Review"
@@ -312,7 +362,9 @@ export default function ProductDetail({ product, onClose }) {
                       ))}
                     </div>
                   ) : (
-                    <p className="text-gray-500">No reviews yet. Be the first to review this product!</p>
+                    <p className="text-gray-500">
+                      No reviews yet. Be the first to review this product!
+                    </p>
                   )}
 
                   {/* Add Review Form */}
@@ -330,7 +382,9 @@ export default function ProductDetail({ product, onClose }) {
 
                       {/* Image Upload */}
                       <div className="mb-4">
-                        <p className="mb-2 text-sm text-gray-600">Add photos (optional)</p>
+                        <p className="mb-2 text-sm text-gray-600">
+                          Add photos (optional)
+                        </p>
                         <div className="flex flex-wrap gap-2 mb-2">
                           {reviewImages.map((img) => (
                             <div key={img.id} className="relative w-16 h-16">
@@ -368,7 +422,9 @@ export default function ProductDetail({ product, onClose }) {
 
                       {/* Rating */}
                       <div className="mb-4">
-                        <p className="mb-2 text-sm text-gray-600">Your rating</p>
+                        <p className="mb-2 text-sm text-gray-600">
+                          Your rating
+                        </p>
                         <div className="flex">
                           {[1, 2, 3, 4, 5].map((rating) => (
                             <Star
@@ -403,7 +459,7 @@ export default function ProductDetail({ product, onClose }) {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 ProductDetail.propTypes = {
@@ -420,5 +476,4 @@ ProductDetail.propTypes = {
     description: PropTypes.string,
   }).isRequired,
   onClose: PropTypes.func.isRequired,
-}
-
+};

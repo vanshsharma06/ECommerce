@@ -9,7 +9,7 @@ const ProductsPage = () => {
   // For demonstration, we'll just display the category and subcategory
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-1 py-8">
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-gray-800">
           {subcategory
@@ -20,7 +20,7 @@ const ProductsPage = () => {
         <p className="text-gray-600">Category: {category?.charAt(0).toUpperCase() + category?.slice(1)}</p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
         {/* This would be populated with actual product data */}
         {Array.from({ length: 8 }).map((_, index) => (
           <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">

@@ -309,7 +309,7 @@ const FilterableProductsWithDetail = () => {
           {/* Right scroll button */}
           <button
             onClick={() => scroll("right")}
-            className="hidden sm:block absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full p-1 shadow-md hover:bg-white transition-all"
+            className="hidden scrollbar-hide sm:block absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full p-1 shadow-md hover:bg-white transition-all"
             aria-label="Scroll right"
           >
             <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-gray-700" />

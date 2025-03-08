@@ -90,7 +90,7 @@ const Navigation = () => {
         </button>
 
         {/* Navigation Links */}
-        <div className="text-[7px] font-medium flex justify-center sm:text-[8px] md:text-[8px] md:gap-2 lg:text-[11px] xl:text-[13px] lg:gap-4">
+        <div className="text-[7px] font-medium flex justify-center sm:text-[8px] md:text-[8px] md:gap-2 lg:text-[11px] xl:text-[13px] lg:gap-4 scrollbar-hide">
           {[
             "Home",
             "Fashion",
