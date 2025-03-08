@@ -191,7 +191,7 @@ export default function Header() {
             </a>
           </span>
 
-          <div className="flex items-center space-x-2 sm:space-x-3 lg:space-x-4 xl:space-x-5 ">
+          <div className="flex items-center space-x-2 sm:space-x-3 lg:space-x-4 xl:space-x-4 ">
             <Tooltip title="Compare">
               <div className="relative cursor-pointer">
                 <SyncAlt
@@ -202,11 +202,11 @@ export default function Header() {
                       sm: "22px",
                       md: "20px",
                       lg: "25px",
-                      xl:"28px",
+                      xl: "28px",
                     },
                   }}
                 />
-                <span className="absolute -top-1 lg:-top-2 -right-1 bg-red-500 text-white text-[8px] sm:text-[7px] lg:sm:text-[10px] xl:text-[13px] xl:-top-4 xl:px-[5px] xl:-right-2 px-1 rounded-full">
+                <span className="absolute -top-1 lg:-top-2 -right-1 bg-red-500 text-white text-[8px] sm:text-[7px] lg:sm:text-[10px] xl:text-[12px] xl:-top-3.5 xl:px-[5px] xl:-right-2 px-1 rounded-full">
                   4
                 </span>
               </div>
@@ -222,11 +222,11 @@ export default function Header() {
                       sm: "22px",
                       md: "20px",
                       lg: "25px",
-                      xl:"28px",
+                      xl: "28px",
                     },
                   }}
                 />
-                <span className="absolute -top-1 lg:-top-2 -right-2 bg-red-500 text-white text-[8px] sm:text-[7px] lg:sm:text-[10px] xl:text-[13px] xl:-top-4 xl:px-[5px] xl:-right-2 px-1 rounded-full">
+                <span className="absolute -top-1 lg:-top-2 -right-2 bg-red-500 text-white text-[8px] sm:text-[7px] lg:sm:text-[10px] xl:text-[12px] xl:-top-3.5 xl:px-[5px] xl:-right-2 px-1 rounded-full">
                   2
                 </span>
               </div>
@@ -242,11 +242,11 @@ export default function Header() {
                       sm: "22px",
                       md: "20px",
                       lg: "25px",
-                      xl:"28px",
+                      xl: "28px",
                     },
                   }}
                 />
-                <span className="absolute -top-1 lg:-top-2 -right-2 bg-red-500 text-white text-[8px] sm:text-[7px] lg:sm:text-[10px] xl:text-[13px] xl:-top-4 xl:px-[5px] xl:-right-2 px-1 rounded-full">
+                <span className="absolute -top-1 lg:-top-2 -right-2 bg-red-500 text-white text-[8px] sm:text-[7px] lg:sm:text-[10px] xl:text-[12px] xl:-top-3.5 xl:px-[5px] xl:-right-2 px-1 rounded-full">
                   4
                 </span>
               </div>

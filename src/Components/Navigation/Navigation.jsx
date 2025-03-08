@@ -54,7 +54,7 @@ const Navigation = () => {
           ].map((item, index) => (
             <button
               key={item}
-              className={`relative font-semibold md:px-1 py-1 text-[10px] transition-all duration-200 
+              className={`hidden relative font-semibold md:px-1 py-1 text-[10px] transition-all duration-200 
                 ${index >= 6 ? "hidden sm:inline-block " : ""}`}
               onClick={() => {
                 if (item !== "Home") handleCategoryClick(item);

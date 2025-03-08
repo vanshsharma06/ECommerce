@@ -118,7 +118,6 @@ export default function ProductCarousel() {
       backgroundColor: "#ffffff",
     },
   ];
-  
 
   const handleProductClick = (product) => {
     setSelectedProduct(product);
@@ -149,7 +148,9 @@ export default function ProductCarousel() {
         .map((_, i) => (
           <span
             key={i}
-            className={`text-lg ${i < rating ? "text-yellow-400" : "text-gray-300"}`}
+            className={`text-lg ${
+              i < rating ? "text-yellow-400" : "text-gray-300"
+            }`}
           >
             ★
           </span>
@@ -163,16 +164,18 @@ export default function ProductCarousel() {
         <ProductDetail product={selectedProduct} onClose={handleCloseDetail} />
       ) : (
         <div className="max-w-[2000px] mx-auto px-4 py-4 lg:px-15">
-          <h2 className="text-[15px] font-medium text-gray-800 mb-2">Products</h2>
+          <h2 className="text-[15px] font-medium text-gray-800 mb-2">
+            Products
+          </h2>
 
           <div className="relative" ref={containerRef}>
-          <button
-            onClick={() => scroll("left")}
-            className="hidden sm:block absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full p-1 shadow-md hover:bg-white transition-all"
-            aria-label="Scroll left"
-          >
-            <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-gray-700" />
-          </button>
+            <button
+              onClick={() => scroll("left")}
+              className="hidden sm:block absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full p-1 shadow-md hover:bg-white transition-all"
+              aria-label="Scroll left"
+            >
+              <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-gray-700" />
+            </button>
             <div
               className="overflow-x-auto scrollbar-hide scroll-smooth"
               ref={scrollContainerRef}
@@ -192,11 +195,11 @@ export default function ProductCarousel() {
                             {product.discount}
                           </div>
                         )}
-                        <div className="w-full h-full flex items-center justify-center">
+                        <div className="relative aspect-[4/5] overflow-hidden w-full h-full flex items-center justify-center">
                           <img
                             src={product.image}
                             alt={product.name}
-                            className="max-h-full max-w-full object-fit transition-transform duration-300 hover:scale-105"
+                            className="w-full h-full object-fit transition-transform duration-300 hover:scale-105"
                           />
                         </div>
                       </div>
@@ -209,7 +212,9 @@ export default function ProductCarousel() {
                           {product.name}
                         </h3>
 
-                        <div className="flex mb-2">{renderStars(product.rating)}</div>
+                        <div className="flex mb-2">
+                          {renderStars(product.rating)}
+                        </div>
 
                         <div className="mt-auto">
                           <div className="flex items-center gap-2 mb-3">
@@ -222,16 +227,16 @@ export default function ProductCarousel() {
                           </div>
 
                           <button
-                      className="w-full border border-red-500 text-[12px] sm:text-[13px] md:text-[14px] lg:text-[14px] lg:py-2 text-red-500 rounded py-[6px] sm:py-[4px] flex items-center justify-center gap-1 hover:bg-black hover:text-white transition-colors hover:border-black lg:mb-3 lg:mt-3"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        // You can add cart functionality here
-                        alert(`Added ${product.name} to cart!`);
-                      }}
-                    >
-                      <ShoppingCart className="h-3.5 w-3.5 mr-1" />
-                      ADD TO CART
-                    </button>
+                            className="w-full border border-red-500 text-[12px] sm:text-[13px] md:text-[14px] lg:text-[14px] lg:py-2 text-red-500 rounded py-[6px] sm:py-[4px] flex items-center justify-center gap-1 hover:bg-black hover:text-white transition-colors hover:border-black lg:mb-3 lg:mt-3"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              // You can add cart functionality here
+                              alert(`Added ${product.name} to cart!`);
+                            }}
+                          >
+                            <ShoppingCart className="h-3.5 w-3.5 mr-1" />
+                            ADD TO CART
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -239,12 +244,12 @@ export default function ProductCarousel() {
                 ))}
               </div>
               <button
-            onClick={() => scroll("right")}
-            className="hidden sm:block absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full p-1 shadow-md hover:bg-white transition-all"
-            aria-label="Scroll right"
-          >
-            <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-gray-700" />
-          </button>
+                onClick={() => scroll("right")}
+                className="hidden sm:block absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full p-1 shadow-md hover:bg-white transition-all"
+                aria-label="Scroll right"
+              >
+                <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-gray-700" />
+              </button>
             </div>
           </div>
         </div>

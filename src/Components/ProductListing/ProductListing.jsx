@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import "./product-listing.css"; // We'll create this CSS file
 
 // Sample product data
 const sampleProducts = [
@@ -207,19 +206,19 @@ const ProductListing = ({ initialCategory = null }) => {
     for (let i = 1; i <= 5; i++) {
       if (i <= fullStars) {
         stars.push(
-          <span key={i} className="star-filled">
+          <span key={i} className="text-amber-500">
             ★
           </span>
         );
       } else if (i === fullStars + 1 && hasHalfStar) {
         stars.push(
-          <span key={i} className="star-filled">
+          <span key={i} className="text-amber-500">
             ★
           </span>
         );
       } else {
         stars.push(
-          <span key={i} className="star-empty">
+          <span key={i} className="text-gray-300">
             ★
           </span>
         );
@@ -235,75 +234,82 @@ const ProductListing = ({ initialCategory = null }) => {
   };
 
   return (
-    <div className="product-listing">
+    <div className="border border-gray-200 rounded-md font-sans">
       {/* Category Header */}
-      <div className="category-header" onClick={() => setIsOpen(!isOpen)}>
-        <h2>Shop by Category</h2>
-        <span className="chevron">{isOpen ? "▲" : "▼"}</span>
+      <div
+        className="flex items-center justify-between p-4 cursor-pointer border-b border-gray-200"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <h2 className="text-lg font-medium m-0">Shop by Category</h2>
+        <span className="text-xs">{isOpen ? "▲" : "▼"}</span>
       </div>
 
       {isOpen && (
-        <div className="product-container">
+        <div className="flex flex-col md:flex-row">
           {/* Sidebar Filters */}
-          <div className="sidebar">
+          <div className="w-full md:w-1/4 p-4 border-r border-gray-200">
             {/* Category Filter */}
-            <div className="filter-section">
-              <h3>Shop by Category</h3>
-              <div className="filter-options">
+            <div className="mb-6">
+              <h3 className="text-sm font-medium mb-2">Shop by Category</h3>
+              <div className="flex flex-col gap-2">
                 {categories.map((category) => (
-                  <div key={category} className="filter-option">
+                  <div key={category} className="flex items-center gap-2">
                     <input
                       type="checkbox"
                       id={`category-${category}`}
                       checked={selectedCategories.includes(category)}
                       onChange={() => toggleCategory(category)}
+                      className="accent-red-500"
                     />
-                    <label htmlFor={`category-${category}`}>{category}</label>
+                    <label htmlFor={`category-${category}`} className="text-sm">
+                      {category}
+                    </label>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Price Filter */}
-            <div className="filter-section">
-              <h3>Filter By Price</h3>
+            <div className="mb-6">
+              <h3 className="text-sm font-medium mb-2">Filter By Price</h3>
               <input
                 type="range"
                 min="0"
                 max="60000"
                 value={priceRange[1]}
                 onChange={handlePriceChange}
-                className="price-slider"
+                className="w-full my-4 accent-red-500"
               />
-              <div className="price-range">
+              <div className="flex justify-between text-sm">
                 <div>From: {formatPrice(0)}</div>
                 <div>To: {formatPrice(priceRange[1])}</div>
               </div>
             </div>
 
             {/* Rating Filter */}
-            <div className="filter-section">
-              <h3>Filter By Rating</h3>
-              <div className="filter-options">
+            <div className="mb-6">
+              <h3 className="text-sm font-medium mb-2">Filter By Rating</h3>
+              <div className="flex flex-col gap-2">
                 {[5, 4, 3, 2, 1].map((rating) => (
-                  <div key={rating} className="filter-option">
+                  <div key={rating} className="flex items-center gap-2">
                     <input
                       type="checkbox"
                       id={`rating-${rating}`}
                       checked={selectedRating === rating}
                       onChange={() => toggleRating(rating)}
+                      className="accent-red-500"
                     />
                     <label
                       htmlFor={`rating-${rating}`}
-                      className="rating-stars"
+                      className="flex text-sm"
                     >
                       {[...Array(rating)].map((_, i) => (
-                        <span key={i} className="star-filled">
+                        <span key={i} className="text-amber-500">
                           ★
                         </span>
                       ))}
                       {[...Array(5 - rating)].map((_, i) => (
-                        <span key={i} className="star-empty">
+                        <span key={i} className="text-gray-300">
                           ★
                         </span>
                       ))}
@@ -315,32 +321,36 @@ const ProductListing = ({ initialCategory = null }) => {
           </div>
 
           {/* Product Grid */}
-          <div className="product-content">
+          <div className="w-full md:w-3/4 p-4">
             {/* Product Header */}
-            <div className="product-header">
-              <div className="view-options">
-                <button
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-2">
+                {/* <button
                   onClick={() => setViewMode("grid")}
-                  className={viewMode === "grid" ? "active" : ""}
+                  className={`p-1 border-none bg-transparent cursor-pointer ${
+                    viewMode === "grid" ? "text-red-500" : "text-gray-500"
+                  }`}
                 >
                   Grid
-                </button>
-                <button
+                </button> */}
+                {/* <button
                   onClick={() => setViewMode("list")}
-                  className={viewMode === "list" ? "active" : ""}
+                  className={`p-1 border-none bg-transparent cursor-pointer ${
+                    viewMode === "list" ? "text-red-500" : "text-gray-500"
+                  }`}
                 >
                   List
-                </button>
-                <span className="product-count">
+                </button> */}
+                <span className="text-sm text-gray-500 ml-2">
                   There are {filteredProducts.length} products.
                 </span>
               </div>
-              <div className="sort-options">
+              <div className="flex items-center gap-2 text-sm">
                 <span>Sort By:</span>
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="sort-select"
+                  className="px-2 py-1 border border-gray-300 rounded text-sm"
                 >
                   <option value="name-a-z">Name, A to Z</option>
                   <option value="name-z-a">Name, Z to A</option>
@@ -351,33 +361,51 @@ const ProductListing = ({ initialCategory = null }) => {
             </div>
 
             {/* Product Grid */}
-            <div className={`product-grid ${viewMode}`}>
+            <div
+              className={`grid gap-2 ${
+                viewMode === "grid"
+                  ? "grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3"
+                  : "grid-cols-1"
+              }`}
+            >
               {filteredProducts.map((product) => (
-                <div key={product.id} className="product-card">
+                <div
+                  key={product.id}
+                  className="relative border border-gray-200 rounded-md overflow-hidden"
+                >
                   {product.discount && (
-                    <div className="discount-badge">{product.discount}%</div>
+                    <div className="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded z-1">
+                      {product.discount}%
+                    </div>
                   )}
-                  <div className="product-image">
+                  <div className="aspect-[3/4] overflow-hidden">
                     <img
                       src={product.image || "/placeholder.svg"}
                       alt={product.name}
+                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                     />
                   </div>
-                  <div className="product-details">
-                    <div className="product-brand">{product.brand}</div>
-                    <h3 className="product-name">{product.name}</h3>
-                    <div className="product-rating">
+                  <div className="p-2">
+                    <div className="text-xs text-gray-500 mb-1">
+                      {product.brand}
+                    </div>
+                    <h3 className="text-sm font-medium mb-1 line-clamp-1 overflow-hidden">
+                      {product.name}
+                    </h3>
+                    <div className="flex mb-2">
                       {renderStars(product.rating)}
                     </div>
-                    <div className="product-price">
-                      <span className="original-price">
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="text-sm text-gray-400 line-through">
                         {formatPrice(product.originalPrice)}
                       </span>
-                      <span className="discounted-price">
+                      <span className="font-bold text-red-500">
                         {formatPrice(product.discountedPrice)}
                       </span>
                     </div>
-                    <button className="add-to-cart-btn">ADD TO CART</button>
+                    <button className="w-full py-2 bg-transparent border border-red-500 text-red-500 rounded text-xs font-medium cursor-pointer transition-all duration-200 hover:bg-red-500 hover:text-white">
+                      ADD TO CART
+                    </button>
                   </div>
                 </div>
               ))}
@@ -385,10 +413,10 @@ const ProductListing = ({ initialCategory = null }) => {
 
             {/* Empty State */}
             {filteredProducts.length === 0 && (
-              <div className="empty-state">
-                <p>No products match your filters.</p>
+              <div className="text-center py-10">
+                <p className="text-gray-500">No products match your filters.</p>
                 <button
-                  className="clear-filters-btn"
+                  className="mt-4 px-4 py-2 bg-transparent border border-gray-300 rounded cursor-pointer hover:bg-gray-100"
                   onClick={() => {
                     setSelectedCategories(
                       initialCategory ? [initialCategory] : []

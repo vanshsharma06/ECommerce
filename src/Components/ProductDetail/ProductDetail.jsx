@@ -281,9 +281,7 @@ export default function ProductDetail({ product, onClose }) {
           <div className="py-6">
             {activeTab === "Description" ? (
               <div className="border border-gray-200 rounded-md p-4">
-                <p className="text-gray-700">
-                  {product.description}
-                </p>
+                <p className="text-gray-700">{product.description}</p>
               </div>
             ) : (
               <div className="space-y-8">

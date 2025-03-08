@@ -10,21 +10,42 @@ import Features from "../Components/Features/Features";
 import Footer from "../Components/Footer";
 import ElectronicsPage from "../Components/ElectronicsPage/ElectronicsPage";
 import Groceries from "../Components/Groceries/Groceries";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ProductsPage from "../Components/ProductsPage/ProductsPage";
+
 export default function Pages() {
   return (
-    <div>
-      <Header></Header>
-      <Navigation></Navigation>
-      <Slider></Slider>
-      <CategorySection></CategorySection>
-      <FilterableProducts></FilterableProducts>
-      <FreeShipping></FreeShipping>
-      <DealsSection></DealsSection>
-      <ProductCarousel></ProductCarousel>
-      <ElectronicsPage></ElectronicsPage>
-      <Groceries></Groceries>
-      <Features></Features>
-      <Footer></Footer>
-    </div>
+    <Router>
+      <div>
+        <Header />
+        <Navigation />
+        
+        <Routes>
+          {/* Home page route with all components */}
+          <Route path="/" element={
+            <>
+              <Slider />
+              <CategorySection />
+              <FilterableProducts />
+              <FreeShipping />
+              <DealsSection />
+              <ProductCarousel />
+              <ElectronicsPage />
+              <Groceries />
+              <Features />
+            </>
+          } />
+          
+          {/* Products page route for category/subcategory */}
+          <Route path="/products/:category/:subcategory" element={
+            <>
+              <ProductsPage />
+            </>
+          } />
+        </Routes>
+        
+        <Footer />
+      </div>
+    </Router>
   );
 }
