@@ -48,7 +48,12 @@ const AuthPage = ({ isLogin, toggleAuth }) => {
           </button>
           <p className="text-center text-sm text-gray-600 mb-3">
             {isLogin ? "Not Registered? " : "Already have an account? "}
-            <span className="text-red-500 cursor-pointer" onClick={toggleAuth}>
+            <span
+              className="text-red-500 cursor-pointer"
+              onClick={() => {
+                toggleAuth();
+              }}
+            >
               {isLogin ? "Sign Up" : "Login"}
             </span>
           </p>
@@ -68,7 +73,12 @@ const AuthPage = ({ isLogin, toggleAuth }) => {
 const AuthContainer = () => {
   const [isLogin, setIsLogin] = useState(true);
 
-  return <AuthPage isLogin={isLogin} toggleAuth={() => setIsLogin(!isLogin)} />;
+  return (
+    <>
+      {console.log("Current isLogin state:", isLogin)}
+      <AuthPage isLogin={isLogin} toggleAuth={() => setIsLogin((prev) => !prev)} />
+    </>
+  );
 };
 
 export default AuthContainer;

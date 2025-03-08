@@ -6,8 +6,10 @@ import {
 } from "@mui/icons-material";
 import { Tooltip } from "@mui/material";
 import photo from "../assets/logo.jpg";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 export default function Header() {
+  const navigate = useNavigate(); // Hook for navigation
   return (
     <>
       {/* -------------------------------------
@@ -49,25 +51,26 @@ export default function Header() {
               src={photo}
               alt="ClassyShop"
               className="h-9 w-35 sm:h-10 sm:w-25 md:h-7 md:w-27 lg:h-11 lg:w-34"
+              onClick={() => navigate("/")}
             />
           </div>
 
           {/* Icons & Login */}
           <div className="flex items-cente me-2 sm:space-x-3 gap-3 lg:space-x-5 lg:gap-[4px]">
-            <span className="flex justify-center items-center space-x-1 text-gray-700 cursor-pointer lg:gap-[4px] ">
-              <a
-                className="hover:text-red-500 text-[12px] sm:text-[10px] md:text-[11px] lg:text-[14px] "
-                href="#"
+            <span className="flex justify-center items-center space-x-1 text-gray-700 cursor-pointer">
+              <button
+                onClick={() => navigate("/login")}
+                className="hover:text-red-500 text-[12px] sm:text-[10px] md:text-[11px] lg:text-[14px]"
               >
                 Login
-              </a>
+              </button>
               <p className="text-[15px]">|</p>
-              <a
+              <button
+                onClick={() => navigate("/register")}
                 className="hover:text-red-500 text-[12px] sm:text-[10px] md:text-[11px] lg:text-[14px]"
-                href="#"
               >
                 Register
-              </a>
+              </button>
             </span>
 
             <div className="flex items-center space-x-3 sm:space-x-3 lg:space-x-4">
@@ -156,6 +159,7 @@ export default function Header() {
               src={photo}
               alt="ClassyShop"
               className="h-8 w-39 sm:h-10 sm:w-25 md:h-6 md:w-22 lg:h-9 lg:w-35 xl:h-12 xl:w-46"
+              onClick={() => navigate("/")}
             />
           </div>
 
@@ -175,20 +179,20 @@ export default function Header() {
 
         {/* Icons & Login */}
         <div className="flex items-center sm:space-x-3 gap-2 lg:space-x-5 xl:space-x-7 lg:gap-[4px] xl:gap-[7px] xl:me-8">
-          <span className="flex justify-center items-center space-x-1 text-gray-700 cursor-pointer lg:gap-[4px] ">
-            <a
-              className="hover:text-red-500 text-[10px] sm:text-[10px] md:text-[11px] lg:text-[14px] xl:text-[17px]"
-              href="#"
+          <span className="flex justify-center items-center space-x-1 text-gray-700 cursor-pointer">
+            <button
+              onClick={() => navigate("/login")}
+              className="hover:text-red-500 text-[12px] sm:text-[10px] md:text-[11px] lg:text-[14px]"
             >
               Login
-            </a>
-            <p className="text-[12px] lg:text-[15px] xl:text-[18px]">|</p>
-            <a
-              className="hover:text-red-500 text-[10px] sm:text-[10px] md:text-[11px] lg:text-[14px] xl:text-[17px]"
-              href="#"
+            </button>
+            <p className="text-[15px]">|</p>
+            <button
+              onClick={() => navigate("/register")}
+              className="hover:text-red-500 text-[12px] sm:text-[10px] md:text-[11px] lg:text-[14px]"
             >
               Register
-            </a>
+            </button>
           </span>
 
           <div className="flex items-center space-x-2 sm:space-x-3 lg:space-x-4 xl:space-x-4 ">
