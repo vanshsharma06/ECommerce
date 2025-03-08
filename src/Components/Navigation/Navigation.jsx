@@ -1,12 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";  // ✅ Import useNavigate
 import { Menu, ExpandMore, RocketLaunch } from "@mui/icons-material";
 import CategoryPanel from "../CategoryPanel/CategoryPanel";
 
 const Navigation = () => {
   const [isOpenCatPanel, setIsOpenCatPanel] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const navigate = useNavigate();  // ✅ Initialize useNavigate
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
@@ -57,7 +59,11 @@ const Navigation = () => {
               className={`hidden relative font-semibold md:px-1 py-1 text-[10px] transition-all duration-200 
                 ${index >= 6 ? "hidden sm:inline-block " : ""}`}
               onClick={() => {
-                if (item !== "Home") handleCategoryClick(item);
+                if (item === "Home") {
+                  navigate("/");  // ✅ Redirect to Home
+                } else {
+                  handleCategoryClick(item);
+                }
               }}
             >
               {item}
@@ -100,7 +106,11 @@ const Navigation = () => {
               key={item}
               className="relative px-1 py-1 transition-all duration-200 group"
               onClick={() => {
-                if (item !== "Home") handleCategoryClick(item);
+                if (item === "Home") {
+                  navigate("/");  // ✅ Redirect to Home
+                } else {
+                  handleCategoryClick(item);
+                }
               }}
             >
               {item}
