@@ -28,7 +28,7 @@ const deals = [
 
 const DealsSection = () => {
   return (
-    <div className="relative w-full max-w-[1200px] mx-auto py-3 px-3 lg:py-10">
+    <div className="relative w-full max-w-[1350px] mx-auto py-3 px-3 lg:py-10">
       {/* Swiper Slider */}
       <Swiper
         modules={[Navigation]}
@@ -57,10 +57,10 @@ const DealsSection = () => {
       </Swiper>
 
       {/* Navigation Buttons */}
-      <button className="prev-btn absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full z-10">
+      <button className="prev-btn absolute left-5 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full z-10">
         <ChevronLeft size={20} />
       </button>
-      <button className="next-btn absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full z-10">
+      <button className="next-btn absolute right-5 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full z-10">
         <ChevronRight size={20} />
       </button>
     </div>

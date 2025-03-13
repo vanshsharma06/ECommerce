@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight,ShoppingCart} from "lucide-react";
 import ProductDetail from "../ProductDetail/ProductDetail";
 
 const FilterableProductsWithDetail = () => {
@@ -291,15 +291,16 @@ const FilterableProductsWithDetail = () => {
                       </span>
                     </div>
                     <button
-                      className="w-full border border-red-500 text-[12px] sm:text-[13px] md:text-[14px] lg:text-[14px] lg:py-2 text-red-500 rounded py-[6px] sm:py-[4px] flex items-center justify-center gap-1 hover:bg-black hover:text-white transition-colors hover:border-black lg:mb-3 lg:mt-3"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        // You can add cart functionality here
-                        alert(`Added ${product.name} to cart!`);
-                      }}
-                    >
-                      <span>🛒</span> ADD TO CART
-                    </button>
+                            className="w-full border border-red-500 text-[12px] sm:text-[13px] md:text-[14px] lg:text-[14px] lg:py-2 text-red-500 rounded py-[6px] sm:py-[4px] flex items-center justify-center gap-1 hover:bg-black hover:text-white transition-colors hover:border-black lg:mb-3 lg:mt-3"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              // You can add cart functionality here
+                              alert(`Added ${product.name} to cart!`);
+                            }}
+                          >
+                            <ShoppingCart className="h-3.5 w-3.5 mr-1" />
+                            ADD TO CART
+                          </button>
                   </div>
                 </div>
               </div>

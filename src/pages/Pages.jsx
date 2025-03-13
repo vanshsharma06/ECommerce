@@ -1,3 +1,4 @@
+// import { useEffect } from "react";
 import Header from "../Components/Header";
 import Navigation from "../Components/Navigation/Navigation";
 import Slider from "../Components/Slider/Slider";
@@ -13,6 +14,9 @@ import Groceries from "../Components/Groceries/Groceries";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ProductsPage from "../Components/ProductsPage/ProductsPage";
 import AuthContainer from "../Components/AuthContainer/AuthContainer";
+import Cart from "../Components/Cart/Cart";
+import Wishlist from "../Components/Wishlist/Wishlist";
+import HelpCenterPage from "../Components/HelpCenterPage/HelpCenterPage";
 
 export default function Pages() {
   return (
@@ -23,13 +27,17 @@ export default function Pages() {
         <Routes>
           <Route path="/login" element={<AuthContainer isLogin={true} />} />
           <Route path="/register" element={<AuthContainer isLogin={false} />} />
-        </Routes>
-        <Routes>
+          <Route path="/help-center" element={<HelpCenterPage />} />
+
+          {/* New routes for cart and wishlist */}
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/wishlist" element={<Wishlist />} />
+
           {/* Home page route with all components */}
           <Route
             path="/"
             element={
-              <>
+              <div className="home-content">
                 <Slider />
                 <CategorySection />
                 <FilterableProducts />
@@ -39,7 +47,7 @@ export default function Pages() {
                 <ElectronicsPage />
                 <Groceries />
                 <Features />
-              </>
+              </div>
             }
           />
 

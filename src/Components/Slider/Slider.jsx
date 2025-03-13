@@ -16,7 +16,7 @@ export default function Slider() {
             autoplay={{ delay: 2000, disableOnInteraction: false }} // ✅ Auto-slide every 3 sec
             className="mySwiper"
           >
-            <SwiperSlide>
+            {/* <SwiperSlide>
               <div className="item rounded-[20px] overflow-hidden">
                 <img
                   src="https://res.cloudinary.com/duqoh8gf5/image/upload/v1740456281/1740456280463_New_Project_1.jpg"
@@ -24,7 +24,7 @@ export default function Slider() {
                    className="w-full h-[200px] sm:h-auto object-fit"
                 />
               </div>
-            </SwiperSlide>
+            </SwiperSlide> */}
             <SwiperSlide>
               <div className="item rounded-[20px] overflow-hidden">
                 <img
