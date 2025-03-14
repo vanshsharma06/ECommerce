@@ -211,95 +211,93 @@ export default function Header() {
               style={{ fontSize: "21px" }}
             />
           </div>
-             {/* Icons & Login */}
-        <div className="flex items-center sm:space-x-3 gap-2 lg:space-x-5 xl:space-x-7 lg:gap-[4px] xl:gap-[7px] xl:me-8">
-          <span className="flex justify-center items-center space-x-1 text-gray-700 cursor-pointer header-animate">
-            <button
-              onClick={() => navigate("/login")}
-              className="hover:text-red-500 text-[12px] sm:text-[10px] md:text-[11px] lg:text-[14px]"
-            >
-              Login
-            </button>
-            <p className="text-[15px]">|</p>
-            <button
-              onClick={() => navigate("/register")}
-              className="hover:text-red-500 text-[12px] sm:text-[10px] md:text-[11px] lg:text-[14px]"
-            >
-              Register
-            </button>
-          </span>
-
-          <div className="flex items-center space-x-2 sm:space-x-3 lg:space-x-4 xl:space-x-4">
-            <Tooltip title="Compare">
-              <div className="relative cursor-pointer header-animate">
-                <SyncAlt
-                  className="text-gray-600"
-                  sx={{
-                    fontSize: {
-                      xs: "20px",
-                      sm: "22px",
-                      md: "20px",
-                      lg: "27px",
-                      xl: "28px",
-                    },
-                  }}
-                />
-                <span className="absolute -top-1 lg:-top-2 -right-1 bg-red-500 text-white text-[8px] sm:text-[7px] lg:sm:text-[10px] xl:text-[12px] xl:-top-3.5 xl:px-[5px] xl:-right-2 px-1 rounded-full">
-                  4
-                </span>
-              </div>
-            </Tooltip>
-
-            <Tooltip title="Wishlist">
-              <div
-                className="relative cursor-pointer header-animate wishlist-icon"
-                onClick={handleWishlistClick}
+          {/* Icons & Login */}
+          <div className="flex items-center sm:space-x-3 gap-2 lg:space-x-5 xl:space-x-7 lg:gap-[4px] xl:gap-[7px] xl:me-8">
+            <span className="flex justify-center items-center space-x-1 text-gray-700 cursor-pointer header-animate">
+              <button
+                onClick={() => navigate("/login")}
+                className="hover:text-red-500 text-[12px] sm:text-[10px] md:text-[11px] lg:text-[14px]"
               >
-                <FavoriteBorder
-                  className="text-gray-600"
-                  sx={{
-                    fontSize: {
-                      xs: "20px",
-                      sm: "22px",
-                      md: "20px",
-                      lg: "27px",
-                      xl: "28px",
-                    },
-                  }}
-                />
-                <span className="absolute -top-1 lg:-top-2 -right-2 bg-red-500 text-white text-[8px] sm:text-[7px] lg:sm:text-[10px] xl:text-[12px] xl:-top-3.5 xl:px-[5px] xl:-right-2 px-1 rounded-full">
-                  2
-                </span>
-              </div>
-            </Tooltip>
-
-            <Tooltip title="Cart">
-              <div
-                className="relative cursor-pointer header-animate cart-icon"
-                onClick={handleCartClick}
+                Login
+              </button>
+              <p className="text-[15px]">|</p>
+              <button
+                onClick={() => navigate("/register")}
+                className="hover:text-red-500 text-[12px] sm:text-[10px] md:text-[11px] lg:text-[14px]"
               >
-                <ShoppingCart
-                  className="text-gray-600"
-                  sx={{
-                    fontSize: {
-                      xs: "20px",
-                      sm: "22px",
-                      md: "24px",
-                      lg: "27px",
-                      xl: "28px",
-                    },
-                  }}
-                />
-                <span className="absolute -top-1 lg:-top-2 -right-2 bg-red-500 text-white text-[8px] sm:text-[7px] lg:sm:text-[10px] xl:text-[12px] xl:-top-3.5 xl:px-[5px] xl:-right-2 px-1 rounded-full">
-                  4
-                </span>
-              </div>
-            </Tooltip>
+                Register
+              </button>
+            </span>
+
+            <div className="flex items-center space-x-2 sm:space-x-3 lg:space-x-4 xl:space-x-4">
+              <Tooltip title="Compare">
+                <div className="relative cursor-pointer header-animate">
+                  <SyncAlt
+                    className="text-gray-600"
+                    sx={{
+                      fontSize: {
+                        xs: "20px",
+                        sm: "22px",
+                        md: "20px",
+                        lg: "27px",
+                        xl: "28px",
+                      },
+                    }}
+                  />
+                  <span className="absolute -top-1 lg:-top-2 -right-1 bg-red-500 text-white text-[8px] sm:text-[7px] lg:sm:text-[10px] xl:text-[12px] xl:-top-3.5 xl:px-[5px] xl:-right-2 px-1 rounded-full">
+                    4
+                  </span>
+                </div>
+              </Tooltip>
+
+              <Tooltip title="Wishlist">
+                <div
+                  className="relative cursor-pointer header-animate wishlist-icon"
+                  onClick={handleWishlistClick}
+                >
+                  <FavoriteBorder
+                    className="text-gray-600"
+                    sx={{
+                      fontSize: {
+                        xs: "20px",
+                        sm: "22px",
+                        md: "20px",
+                        lg: "27px",
+                        xl: "28px",
+                      },
+                    }}
+                  />
+                  <span className="absolute -top-1 lg:-top-2 -right-2 bg-red-500 text-white text-[8px] sm:text-[7px] lg:sm:text-[10px] xl:text-[12px] xl:-top-3.5 xl:px-[5px] xl:-right-2 px-1 rounded-full">
+                    2
+                  </span>
+                </div>
+              </Tooltip>
+
+              <Tooltip title="Cart">
+                <div
+                  className="relative cursor-pointer header-animate cart-icon"
+                  onClick={handleCartClick}
+                >
+                  <ShoppingCart
+                    className="text-gray-600"
+                    sx={{
+                      fontSize: {
+                        xs: "20px",
+                        sm: "22px",
+                        md: "24px",
+                        lg: "27px",
+                        xl: "28px",
+                      },
+                    }}
+                  />
+                  <span className="absolute -top-1 lg:-top-2 -right-2 bg-red-500 text-white text-[8px] sm:text-[7px] lg:sm:text-[10px] xl:text-[12px] xl:-top-3.5 xl:px-[5px] xl:-right-2 px-1 rounded-full">
+                    4
+                  </span>
+                </div>
+              </Tooltip>
+            </div>
           </div>
         </div>
-        </div>
-
-     
       </nav>
     </>
   );
