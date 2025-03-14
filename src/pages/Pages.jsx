@@ -17,11 +17,13 @@ import AuthContainer from "../Components/AuthContainer/AuthContainer";
 import Cart from "../Components/Cart/Cart";
 import Wishlist from "../Components/Wishlist/Wishlist";
 import HelpCenterPage from "../Components/HelpCenterPage/HelpCenterPage";
+// import { ProductProvider } from "../Components/ProductProvider";
 
 export default function Pages() {
   return (
     <Router>
       <div>
+        {/* <ProductProvider /> */}
         <Header />
         <Navigation />
         <Routes>

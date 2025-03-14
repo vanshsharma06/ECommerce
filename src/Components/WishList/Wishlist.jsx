@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ShoppingCart, DeleteOutline, Add, Remove } from "@mui/icons-material";
+import { Favorite, DeleteOutline, Add, Remove } from "@mui/icons-material";
 import { Button } from "@mui/material";
 
 export default function Cart() {
@@ -54,8 +54,8 @@ export default function Cart() {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="cart-header flex items-center mb-8">
-        <ShoppingCart className="text-red-500 mr-3" style={{ fontSize: 32 }} />
-        <h1 className="text-2xl font-bold">Your Shopping Cart</h1>
+        <Favorite className="text-red-500 mr-3" style={{ fontSize: 32 }} />
+        <h1 className="text-2xl font-bold">Your Wishlist</h1>
       </div>
 
       {cartItems.length === 0 ? (

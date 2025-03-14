@@ -9,7 +9,7 @@ import {
 import { Tooltip } from "@mui/material";
 import photo from "../assets/logo.jpg";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import gsap from "gsap";
 import { Link } from "react-router-dom";
 
@@ -187,33 +187,31 @@ export default function Header() {
 
       {/* navbar 2 */}
 
-      <nav className="hidden sm:flex items-center justify-between px-2 py-3 border bg-white border-t-[1px] border-b-[1px]  border-gray-200 space-x-1 sm:px-4 sm:py-1 sm:space-x-2 md:py-2 lg:py-3 lg:px-7 lg:-space-x-0">
+      <nav className="hidden sm:flex items-center justify-between px-2 py-3 border bg-white border-t-[1px] border-b-[1px]  border-gray-200 space-x-1 sm:px-4 sm:py-1 sm:space-x-2 md:py-2 lg:py-3 lg:px-7 xl:px-0 lg:-space-x-0">
         {/* Logo */}
-        <div className="flex w-full justify-around">
-          <div className="flex items-center space-x-2 sm:w-35 md:w-40 lg:w-42 xl:w-65 header-animate">
+        <div className="flex w-full justify-around px-3">
+          <div className="flex items-center space-x-2 sm:w-35 md:w-45 lg:w-52 xl:w-70 header-animate">
             <img
               src={photo || "/placeholder.svg"}
               alt="ClassyShop"
-              className="h-8 w-39 sm:h-10 sm:w-25 md:h-6 md:w-22 lg:h-9 lg:w-35 xl:h-12 xl:w-46 cursor-pointer"
+              className="h-8 w-39 sm:h-10 sm:w-25 md:h-8 md:w-26 lg:h-9 lg:w-35 xl:h-12 xl:w-46 cursor-pointer"
               onClick={() => navigate("/")}
             />
           </div>
 
           {/* Search Bar */}
-          <div className="relative w-full mx-2 sm:w-100 sm:mx-3 md:w-100 lg:w-150 xl:w-160 header-animate">
+          <div className="relative w-full mx-2 sm:w-100 sm:mx-3 md:w-100 lg:w-140 xl:w-160 header-animate">
             <input
               type="text"
               placeholder="Search for products..."
-              className="w-full bg-gray-200 text-gray-700 px-2 text-[10px] py-2 rounded-[5px] focus:outline-none sm:text-[9px] md:py-2 lg:py-3 lg:text-[13px] xl:text-[17px] xl:px-4"
+              className="w-[100%] bg-gray-200 text-gray-700 px-2 text-[10px] py-2 rounded-[5px] focus:outline-none sm:text-[9px] md:py-2.5 lg:py-3 md:text-[11px] lg:text-[13px] xl:text-[17px] xl:px-4"
             />
             <Search
               className="absolute right-3 top-4 md:top-2 lg:top-[14px] xl:top-4 text-gray-400 cursor-pointer"
               style={{ fontSize: "21px" }}
             />
           </div>
-        </div>
-
-        {/* Icons & Login */}
+             {/* Icons & Login */}
         <div className="flex items-center sm:space-x-3 gap-2 lg:space-x-5 xl:space-x-7 lg:gap-[4px] xl:gap-[7px] xl:me-8">
           <span className="flex justify-center items-center space-x-1 text-gray-700 cursor-pointer header-animate">
             <button
@@ -299,6 +297,9 @@ export default function Header() {
             </Tooltip>
           </div>
         </div>
+        </div>
+
+     
       </nav>
     </>
   );

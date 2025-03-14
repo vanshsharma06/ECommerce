@@ -17,7 +17,7 @@ const sampleProducts = [
     category: "Fashion",
   },
   {
-    id: 2,
+    id: 1.2,
     brand: "Altocia",
     name: "Altocia Tie and Dye Jogger wit...",
     rating: 3,
@@ -29,7 +29,7 @@ const sampleProducts = [
     category: "Fashion",
   },
   {
-    id: 3,
+    id: 1.3,
     brand: "V-Mart",
     name: "Black solid casual shirt...",
     rating: 5,
@@ -41,7 +41,7 @@ const sampleProducts = [
     category: "Fashion",
   },
   {
-    id: 4,
+    id: 1.4,
     brand: "Deel band",
     name: "Deel Band Women Rayon Embroide...",
     rating: 5,
@@ -53,7 +53,7 @@ const sampleProducts = [
     category: "Fashion",
   },
   {
-    id: 5,
+    id: 1.5,
     brand: "Trilok Fab",
     name: "Buy New Trend Women Black Cott...",
     rating: 4,
@@ -65,7 +65,7 @@ const sampleProducts = [
     category: "Fashion",
   },
   {
-    id: 10,
+    id: 2,
     brand: "Sony",
     name: "Wireless Noise Cancelling Headphones",
     rating: 5,
@@ -77,7 +77,7 @@ const sampleProducts = [
     category: "Electronics",
   },
   {
-    id: 11,
+    id: 3,
     brand: "Baggit",
     name: "Women's Tote Bag",
     rating: 4,
@@ -89,7 +89,7 @@ const sampleProducts = [
     category: "Bags",
   },
   {
-    id: 13,
+    id: 4,
     brand: "Nike",
     name: "Men's Running Shoes",
     rating: 5,
@@ -99,6 +99,66 @@ const sampleProducts = [
     image:
       "https://img.tatacliq.com/images/i17//437Wx649H/MP000000018607393_437Wx649H_202404131828421.jpeg",
     category: "Footwear",
+  },
+  {
+    id: 5,
+    brand: "kalyan jewellers",
+    name: "Necklace",
+    rating: 5,
+    originalPrice: 299999.0,
+    discountedPrice: 199999.0,
+    discount: 22,
+    image:
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw67432ac1/images/hi-res/5110692ZWAAA00_1.jpg?sw=640&sh=640",
+    category: "Jewellery",
+  },
+  {
+    id: 5.1,
+    brand: "Tanishq",
+    name: "Gold Ring",
+    rating: 4.5,
+    originalPrice: 59999.0,
+    discountedPrice: 39999.0,
+    discount: 33,
+    image:
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw5c5ef81f/images/hi-res/511195FHLAA00_1.jpg?sw=640&sh=640",
+    category: "Jewellery",
+  },
+  {
+    id: 5.2,
+    brand: "PC Jewellers",
+    name: "Diamond Earrings",
+    rating: 4.8,
+    originalPrice: 49999.0,
+    discountedPrice: 34999.0,
+    discount: 30,
+    image:
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw103ad1b9/images/hi-res/500482SJAAAA09_1.jpg?sw=640&sh=640",
+    category: "Jewellery",
+  },
+  {
+    id: 5.3,
+    brand: "Malabar Gold",
+    name: "Gold Ring",
+    rating: 4.8,
+    originalPrice: 15999.0,
+    discountedPrice: 12999.0,
+    discount: 20,
+    image:
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw28760e67/images/hi-res/513016FFZAB00_1.jpg?sw=640&sh=640",
+    category: "Jewellery",
+  },
+  {
+    id: 5.4,
+    brand: "Tanishq",
+    name: "Diamond Earrings",
+    rating: 4.9,
+    originalPrice: 79999.0,
+    discountedPrice: 59999.0,
+    discount: 25,
+    image:
+      "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw24e07897/images/ZOYA/hi-res/ZLBM23SBIAAA04_2.jpg?sw=480&sh=480",
+    category: "Jewellery",
   },
 ];
 
@@ -119,7 +179,7 @@ const ProductListing = ({ initialCategory = null }) => {
   const [selectedCategories, setSelectedCategories] = useState(
     initialCategory ? [initialCategory] : []
   );
-  const [priceRange, setPriceRange] = useState([0, 60000]);
+  const [priceRange, setPriceRange] = useState([0, 600000]);
   const [selectedRating, setSelectedRating] = useState(null);
   const [filteredProducts, setFilteredProducts] = useState(sampleProducts);
   const [sortBy, setSortBy] = useState("name-a-z");
@@ -275,7 +335,7 @@ const ProductListing = ({ initialCategory = null }) => {
               <input
                 type="range"
                 min="0"
-                max="60000"
+                max="600000"
                 value={priceRange[1]}
                 onChange={handlePriceChange}
                 className="w-full my-4 accent-red-500"
@@ -378,11 +438,11 @@ const ProductListing = ({ initialCategory = null }) => {
                       {product.discount}%
                     </div>
                   )}
-                  <div className="aspect-[3/4] overflow-hidden">
+                  <div className="aspect-[4/5] overflow-hidden">
                     <img
                       src={product.image || "/placeholder.svg"}
                       alt={product.name}
-                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                      className="w-full h-full object-fit transition-transform duration-300 hover:scale-105"
                     />
                   </div>
                   <div className="p-2">
@@ -421,7 +481,7 @@ const ProductListing = ({ initialCategory = null }) => {
                     setSelectedCategories(
                       initialCategory ? [initialCategory] : []
                     );
-                    setPriceRange([0, 60000]);
+                    setPriceRange([0, 600000]);
                     setSelectedRating(null);
                   }}
                 >

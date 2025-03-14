@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { ChevronLeft, ChevronRight,ShoppingCart} from "lucide-react";
+import { ChevronLeft, ChevronRight, ShoppingCart } from "lucide-react";
 import ProductDetail from "../ProductDetail/ProductDetail";
 
 const FilterableProductsWithDetail = () => {
@@ -34,7 +34,7 @@ const FilterableProductsWithDetail = () => {
       category: "FASHION",
     },
     {
-      id: 2,
+      id: 1.2,
       brand: "Altocia",
       name: "Altocia Tie and Dye Jogger wit...",
       rating: 3,
@@ -46,7 +46,7 @@ const FilterableProductsWithDetail = () => {
       category: "FASHION",
     },
     {
-      id: 3,
+      id: 1.3,
       brand: "V-Mart",
       name: "Black solid casual shirt...",
       rating: 5,
@@ -58,7 +58,7 @@ const FilterableProductsWithDetail = () => {
       category: "FASHION",
     },
     {
-      id: 4,
+      id: 1.4,
       brand: "Deel band",
       name: "Deel Band Women Rayon Embroide...",
       rating: 5,
@@ -70,7 +70,7 @@ const FilterableProductsWithDetail = () => {
       category: "FASHION",
     },
     {
-      id: 5,
+      id: 1.5,
       brand: "Trilok Fab",
       name: "Buy New Trend Women Black Cott...",
       rating: 4,
@@ -82,7 +82,7 @@ const FilterableProductsWithDetail = () => {
       category: "FASHION",
     },
     {
-      id: 6,
+      id: 1.6,
       brand: "Trilok Fab",
       name: "Buy New Trend Women Black Cott...",
       rating: 4,
@@ -94,7 +94,7 @@ const FilterableProductsWithDetail = () => {
       category: "FASHION",
     },
     {
-      id: 7,
+      id: 1.7,
       brand: "Trilok Fab",
       name: "Buy New Trend Women Black Cott...",
       rating: 4,
@@ -106,7 +106,7 @@ const FilterableProductsWithDetail = () => {
       category: "FASHION",
     },
     {
-      id: 8,
+      id: 1.8,
       brand: "Trilok Fab",
       name: "Buy New Trend Women Black Cott...",
       rating: 4,
@@ -118,7 +118,7 @@ const FilterableProductsWithDetail = () => {
       category: "FASHION",
     },
     {
-      id: 9,
+      id: 1.9,
       brand: "Trilok Fab",
       name: "Buy New Trend Women Black Cott...",
       rating: 4,
@@ -131,7 +131,7 @@ const FilterableProductsWithDetail = () => {
     },
     // Add some example products for other categories
     {
-      id: 10,
+      id: 2,
       brand: "Sony",
       name: "Wireless Noise Cancelling Headphones",
       rating: 5,
@@ -143,7 +143,7 @@ const FilterableProductsWithDetail = () => {
       category: "ELECTRONICS",
     },
     {
-      id: 11,
+      id: 3,
       brand: "Baggit",
       name: "Women's Tote Bag",
       rating: 4,
@@ -155,7 +155,7 @@ const FilterableProductsWithDetail = () => {
       category: "BAGS",
     },
     {
-      id: 13,
+      id: 4,
       brand: "Nike",
       name: "Men's Running Shoes",
       rating: 5,
@@ -165,6 +165,66 @@ const FilterableProductsWithDetail = () => {
       image:
         "https://img.tatacliq.com/images/i17//437Wx649H/MP000000018607393_437Wx649H_202404131828421.jpeg",
       category: "FOOTWEAR",
+    },
+    {
+      id: 5,
+      brand: "kalyan jewellers",
+      name: "Necklace",
+      rating: 5,
+      originalPrice: 299999.0,
+      discountedPrice: 199999.0,
+      discount: 22,
+      image:
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw67432ac1/images/hi-res/5110692ZWAAA00_1.jpg?sw=640&sh=640",
+      category: "JEWELLERY",
+    },
+    {
+      id: 5.1,
+      brand: "Tanishq",
+      name: "Gold Ring",
+      rating: 4.5,
+      originalPrice: 59999.0,
+      discountedPrice: 39999.0,
+      discount: 33,
+      image:
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw5c5ef81f/images/hi-res/511195FHLAA00_1.jpg?sw=640&sh=640",
+      category: "JEWELLERY",
+    },
+    {
+      id: 5.2,
+      brand: "PC Jewellers",
+      name: "Diamond Earrings",
+      rating: 4.8,
+      originalPrice: 49999.0,
+      discountedPrice: 34999.0,
+      discount: 30,
+      image:
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw103ad1b9/images/hi-res/500482SJAAAA09_1.jpg?sw=640&sh=640",
+      category: "JEWELLERY",
+    },
+    {
+      id: 5.3,
+      brand: "Malabar Gold",
+      name: "Gold Ring",
+      rating: 4.8,
+      originalPrice: 15999.0,
+      discountedPrice: 12999.0,
+      discount: 20,
+      image:
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw28760e67/images/hi-res/513016FFZAB00_1.jpg?sw=640&sh=640",
+      category: "JEWELLERY",
+    },
+    {
+      id: 5.4,
+      brand: "Tanishq",
+      name: "Diamond Earrings",
+      rating: 4.9,
+      originalPrice: 79999.0,
+      discountedPrice: 59999.0,
+      discount: 25,
+      image:
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw24e07897/images/ZOYA/hi-res/ZLBM23SBIAAA04_2.jpg?sw=480&sh=480",
+      category: "JEWELLERY",
     },
   ];
 
@@ -291,16 +351,16 @@ const FilterableProductsWithDetail = () => {
                       </span>
                     </div>
                     <button
-                            className="w-full border border-red-500 text-[12px] sm:text-[13px] md:text-[14px] lg:text-[14px] lg:py-2 text-red-500 rounded py-[6px] sm:py-[4px] flex items-center justify-center gap-1 hover:bg-black hover:text-white transition-colors hover:border-black lg:mb-3 lg:mt-3"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              // You can add cart functionality here
-                              alert(`Added ${product.name} to cart!`);
-                            }}
-                          >
-                            <ShoppingCart className="h-3.5 w-3.5 mr-1" />
-                            ADD TO CART
-                          </button>
+                      className="w-full border border-red-500 text-[12px] sm:text-[13px] md:text-[14px] lg:text-[14px] lg:py-2 text-red-500 rounded py-[6px] sm:py-[4px] flex items-center justify-center gap-1 hover:bg-black hover:text-white transition-colors hover:border-black lg:mb-3 lg:mt-3"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        // You can add cart functionality here
+                        alert(`Added ${product.name} to cart!`);
+                      }}
+                    >
+                      <ShoppingCart className="h-3.5 w-3.5 mr-1" />
+                      ADD TO CART
+                    </button>
                   </div>
                 </div>
               </div>
