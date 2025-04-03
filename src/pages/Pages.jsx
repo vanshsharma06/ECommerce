@@ -14,8 +14,8 @@ import Groceries from "../Components/Groceries/Groceries";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ProductsPage from "../Components/ProductsPage/ProductsPage";
 import AuthContainer from "../Components/AuthContainer/AuthContainer";
-import Cart from "../Components/Cart/Cart";
-import Wishlist from "../Components/Wishlist/Wishlist";
+// import Cart from "../Components/Cart/Cart";
+// import Wishlist from "../Components/Wishlist/Wishlist";
 import HelpCenterPage from "../Components/HelpCenterPage/HelpCenterPage";
 // import { ProductProvider } from "../Components/ProductProvider";
 
@@ -32,8 +32,8 @@ export default function Pages() {
           <Route path="/help-center" element={<HelpCenterPage />} />
 
           {/* New routes for cart and wishlist */}
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/wishlist" element={<Wishlist />} />
+          {/* <Route path="/cart" element={<Cart />} /> */}
+          {/* <Route path="/wishlist" element={<Wishlist />} /> */}
 
           {/* Home page route with all components */}
           <Route
