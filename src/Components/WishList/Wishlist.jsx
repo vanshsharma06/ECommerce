@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Favorite, DeleteOutline, Add, Remove } from "@mui/icons-material";
 import { Button } from "@mui/material";
 
-export default function Cart() {
+export default function Wishlist() {
   const navigate = useNavigate();
 
   const [cartItems, setCartItems] = useState([
