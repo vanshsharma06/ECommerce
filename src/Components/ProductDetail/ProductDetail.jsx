@@ -11,7 +11,6 @@ import {
   ShoppingCart,
   X,
 } from "lucide-react";
-import PropTypes from "prop-types";
 
 export default function ProductDetail({ product, onClose }) {
   const [selectedSize, setSelectedSize] = useState("M");
@@ -41,13 +40,15 @@ export default function ProductDetail({ product, onClose }) {
   }, [onClose]);
 
   // Sample product images - in a real app, these would come from the product data
-  const productImages = [
-    product.image || "/placeholder.svg?height=600&width=600",
-    "/placeholder.svg?height=600&width=600&text=Image+2",
-    "/placeholder.svg?height=600&width=600&text=Image+3",
-    "/placeholder.svg?height=600&width=600&text=Image+4",
-    "/placeholder.svg?height=600&width=600&text=Image+5",
-  ];
+  const productImages = Array.isArray(product.image)
+    ? product.image
+    : [
+        product.image || "/placeholder.svg?height=600&width=600",
+        "/placeholder.svg?height=600&width=600&text=Image+2",
+        "/placeholder.svg?height=600&width=600&text=Image+3",
+        "/placeholder.svg?height=600&width=600&text=Image+4",
+        "/placeholder.svg?height=600&width=600&text=Image+5",
+      ];
 
   const renderStars = (rating) => {
     return [...Array(5)].map((_, i) => (
@@ -461,19 +462,3 @@ export default function ProductDetail({ product, onClose }) {
     </div>
   );
 }
-
-ProductDetail.propTypes = {
-  product: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    brand: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired,
-    originalPrice: PropTypes.string.isRequired,
-    discountedPrice: PropTypes.string.isRequired,
-    discount: PropTypes.string,
-    image: PropTypes.string.isRequired,
-    category: PropTypes.string.isRequired,
-    description: PropTypes.string,
-  }).isRequired,
-  onClose: PropTypes.func.isRequired,
-};
