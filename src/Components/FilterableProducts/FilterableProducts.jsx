@@ -54,7 +54,7 @@ const FilterableProductsWithDetail = () => {
       discountedPrice: "₹450.00",
       discount: "12%",
       image:
-        "https://res.cloudinary.com/duqoh8gf5/image/upload/v1736781548/1736781543208_1000014029787-Green-GREEN-1000014029787_01-2100.jpg",
+        "src/assets/shirt1.jpg",
       category: "FASHION",
     },
     {
@@ -78,7 +78,7 @@ const FilterableProductsWithDetail = () => {
       discountedPrice: "₹1,500.00",
       discount: "10%",
       image:
-        "https://res.cloudinary.com/duqoh8gf5/image/upload/v1740663881/1740663879548_miss-ayse-women-s-multicolor-crepe-printed-top-product-images-rvvlrud6qm-0-202410111253.webp",
+        "src/assets/top1.webp",
       category: "FASHION",
     },
     {
