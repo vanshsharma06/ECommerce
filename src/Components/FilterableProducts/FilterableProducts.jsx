@@ -387,3 +387,4 @@ const FilterableProductsWithDetail = () => {
 };
 
 export default FilterableProductsWithDetail;
+
