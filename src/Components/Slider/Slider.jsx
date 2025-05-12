@@ -3,6 +3,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "./Slider.css";
 import { Navigation, Autoplay } from "swiper/modules";
+import slide1 from "../../assets/1.jpg"
 export default function Slider() {
   return (
     <>
@@ -19,7 +20,7 @@ export default function Slider() {
             <SwiperSlide>
               <div className="item rounded-[20px] overflow-hidden">
                 <img
-                  src="src/assets/5.jpg"
+                  src={slide1}
                   alt="Slide 1"
                   className="w-full h-[200px] sm:h-auto object-fit"
                 />
