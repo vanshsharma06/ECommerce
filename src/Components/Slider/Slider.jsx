@@ -4,6 +4,10 @@ import "swiper/css/navigation";
 import "./Slider.css";
 import { Navigation, Autoplay } from "swiper/modules";
 import slide1 from "../../assets/1.jpg"
+import slide2 from "../../assets/2.jpg"
+import slide3 from "../../assets/3.jpg"
+import slide4 from "../../assets/4.jpg"
+import slide5 from "../../assets/5.jpg"
 export default function Slider() {
   return (
     <>
@@ -29,7 +33,7 @@ export default function Slider() {
             <SwiperSlide>
               <div className="item rounded-[20px] overflow-hidden">
                 <img
-                  src="src/assets/1.jpg"
+                  src={slide2}
                   alt="Slide 2"
                   className="w-full h-[200px] sm:h-auto object-fit"
                 />
@@ -38,7 +42,7 @@ export default function Slider() {
             <SwiperSlide>
               <div className="item rounded-[20px] overflow-hidden">
                 <img
-                  src="src/assets/2.jpg"
+                  src={slide3}
                   alt="Slide 3"
                   className="w-full h-[200px] sm:h-auto object-fit"
                 />
@@ -47,7 +51,7 @@ export default function Slider() {
             <SwiperSlide>
               <div className="item rounded-[20px] overflow-hidden">
                 <img
-                  src="src/assets/3.jpg"
+                  src={slide4}
                   alt="Slide 4"
                   className="w-full h-[200px] sm:h-auto object-fit"
                 />
@@ -56,7 +60,7 @@ export default function Slider() {
             <SwiperSlide>
               <div className="item rounded-[20px] overflow-hidden">
                 <img
-                  src="src/assets/4.jpg"
+                  src={slide5}
                   alt="Slide 5"
                   className="w-full h-[200px] sm:h-auto object-fit"
                 />
